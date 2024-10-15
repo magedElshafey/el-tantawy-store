@@ -9,6 +9,9 @@ import "./languages/i18n";
 import AppInit from "./components/common/app/AppInit";
 // react query
 import { QueryClientProvider, QueryClient } from "react-query";
+// redux
+import { Provider } from "react-redux";
+import store from "./store/store";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -21,7 +24,9 @@ const queryClient = new QueryClient({
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>
-    <AppInit />
-    <AppRouter />
+    <Provider store={store}>
+      <AppInit />
+      <AppRouter />
+    </Provider>
   </QueryClientProvider>
 );
