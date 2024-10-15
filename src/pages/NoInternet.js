@@ -1,7 +1,7 @@
 import React from "react";
 
-const NoInterner = () => {
+const NoInternet = () => {
   return <div>NoInterner</div>;
 };
 
-export default NoInterner;
+export default NoInternet;
