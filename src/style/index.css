@@ -1,3 +1,64 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    font-weight: bold;
+
+}
+
+h1 {
+    font-size: 2em;
+}
+
+h2 {
+    font-size: 1.5em;
+}
+
+h3 {
+    font-size: 1.17em;
+}
+
+h4 {
+    font-size: 1em;
+}
+
+h5 {
+    font-size: .83em;
+}
+
+h6 {
+    font-size: .67em;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    text-transform: capitalize;
+    overflow-x: hidden !important;
+    font-family: "Cairo", sans-serif;
+}
+
+:root {
+    --redColor: #de0712;
+    --blackColor: #000;
+    --yellowColor: #f3de6d;
+    --grayColor: #fafafa;
+    --textColor: #555;
+    --sectionColor: rgba(252, 200, 199, 0.3);
+    --darkColor: #191c1f;
+    --graySection: #fafafa;
+}
