@@ -6,9 +6,11 @@ import "./style/index.css";
 import AppRouter from "./routes/AppRouter";
 // language
 import "./languages/i18n";
+import AppInit from "./components/common/app/AppInit";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <>
+    <AppInit />
     <AppRouter />
   </>
 );
