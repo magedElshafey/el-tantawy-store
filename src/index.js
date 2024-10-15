@@ -12,6 +12,8 @@ import { QueryClientProvider, QueryClient } from "react-query";
 // redux
 import { Provider } from "react-redux";
 import store from "./store/store";
+// context
+import GlobalContext from "./context/GlobalContext";
 const queryClient = new QueryClient({
   defaultOptions: {
     queries: {
@@ -26,7 +28,9 @@ root.render(
   <QueryClientProvider client={queryClient}>
     <Provider store={store}>
       <AppInit />
-      <AppRouter />
+      <GlobalContext>
+        <AppRouter />
+      </GlobalContext>
     </Provider>
   </QueryClientProvider>
 );
