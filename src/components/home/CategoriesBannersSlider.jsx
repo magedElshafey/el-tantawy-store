@@ -9,7 +9,7 @@ const CategoriesBannersSlider = ({ data }) => {
         {data?.map((item, index) => (
           <img
             alt="banner"
-            src={item}
+            src={item?.image}
             key={index}
             loading="lazy"
             className="w-full h-[100px] md:h-[200px] lg:h-[300px]"
