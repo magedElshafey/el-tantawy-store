@@ -11,9 +11,10 @@ import NotFound from "../pages/NotFound";
 // pages
 import Home from "../pages/Home";
 import About from "../pages/About";
+import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Regester from "../pages/Regester";
-
+import EmailVerficationOtp from "../pages/EmailVerficationOtp";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -29,13 +30,10 @@ const router = createBrowserRouter([
         path: "about",
         element: <About />,
       },
-    ],
-  },
-  {
-    element: <AuthintecationTemplate />,
-    path: "auth",
-    errorElement: <NotFound />,
-    children: [
+      {
+        path: "contact",
+        element: <Contact />,
+      },
       {
         path: "login",
         element: <Login />,
@@ -44,7 +42,17 @@ const router = createBrowserRouter([
         path: "regester",
         element: <Regester />,
       },
+      {
+        path: "verfiy-email",
+        element: <EmailVerficationOtp />,
+      },
     ],
+  },
+  {
+    element: <AuthintecationTemplate />,
+    path: "auth",
+    errorElement: <NotFound />,
+    children: [],
   },
 ]);
 const AppRouter = () => {

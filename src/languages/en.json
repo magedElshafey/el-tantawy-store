@@ -150,5 +150,9 @@
   "verr": "email verification",
   "sentt": "we have sent code to your email",
   "didnot": "didn't receive code ? ",
-  "colorError": "This product is multi-coloured. Please select a colour"
+  "colorError": "This product is multi-coloured. Please select a colour",
+  "ar": "arabic",
+  "en": "english",
+  "follow us": "follow us",
+  "important links": "important links"
 }

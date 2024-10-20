@@ -62,3 +62,22 @@ body {
     --darkColor: #191c1f;
     --graySection: #fafafa;
 }
+
+.main {
+    min-height: calc(100vh - 560px);
+}
+
+/* Hide spinner arrows for input type number */
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.dir {
+    direction: ltr !important;
+}
