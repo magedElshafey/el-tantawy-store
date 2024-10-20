@@ -8,11 +8,11 @@ import useNumberInput from "../hooks/validation/useNumberInput";
 import { useMutation } from "react-query";
 import Swal from "sweetalert2";
 import { regester } from "../services/auth/regester";
-import { useDispatch } from "react-redux";
+import MainBtn from "../components/common/buttons/MainBtn";
+import LoadingBtn from "../components/common/buttons/LoadingBtn";
 const Regester = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
-  const dispatch = useDispatch();
   const {
     password,
     error: passwordError,
@@ -116,25 +116,25 @@ const Regester = () => {
   };
   return (
     <div className="container my-8">
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6 md:gap-7">
-        <div>
-          <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
-            {t("create an El-Tantawy Account")}
-          </p>
-          <p className=" font-semibold mb-6">
-            {t(
-              "From your profile, you will find all information connected to your account. And it’s free to join!"
-            )}
-          </p>
-          <p className=" text-slate-600 flex items-center gap-1">
-            <p>{t("Already have an account?")}</p>
-            <Link to="/" className=" underline">
-              {t("login")}
-            </Link>
-          </p>
-        </div>
-        <form onSubmit={handleSubmit}>
-          <div className="my-4">
+      <div className="mb-6">
+        <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
+          {t("create an El-Tantawy Account")}
+        </p>
+        <p className=" font-semibold mb-6">
+          {t(
+            "From your profile, you will find all information connected to your account. And it’s free to join!"
+          )}
+        </p>
+        <p className=" text-slate-600 flex items-center gap-1">
+          <p>{t("Already have an account?")}</p>
+          <Link to="/login" className=" underline">
+            {t("login")}
+          </Link>
+        </p>
+      </div>
+      <form onSubmit={handleSubmit}>
+        <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+          <div>
             <MainInput
               type="text"
               label="name"
@@ -143,7 +143,7 @@ const Regester = () => {
               error={nameError}
             />
           </div>
-          <div className="my-4">
+          <div>
             <MainInput
               type="text"
               label="user name"
@@ -151,8 +151,10 @@ const Regester = () => {
               onChange={handleUserNameChange}
             />
           </div>
+        </div>
 
-          <div className="my-4">
+        <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
+          <div>
             <MainInput
               type="number"
               label="phone"
@@ -161,7 +163,7 @@ const Regester = () => {
               error={phoneError}
             />
           </div>
-          <div className="my-4">
+          <div>
             <MainInput
               type="email"
               label="email"
@@ -169,23 +171,26 @@ const Regester = () => {
               onChange={(e) => setEmail(e.target.value)}
             />
           </div>
-          <div className="my-4">
-            <MainInput
-              type="password"
-              label="password"
-              value={password}
-              onChange={handlePasswordChange}
-              error={passwordError}
-            />
-          </div>
-          <button
-            type="submit"
-            className=" border w-full md:w-[180px] mx-auto border-black bg-white text-black flex items-center justify-center p-3 rounded-lg duration-300 hover:bg-black hover:text-white hover:border-white"
-          >
-            {t("create account")}
-          </button>
-        </form>
-      </div>
+        </div>
+
+        <div className="w-full md:w-1/2 my-4">
+          <MainInput
+            type="password"
+            label="password"
+            value={password}
+            onChange={handlePasswordChange}
+            error={passwordError}
+          />
+        </div>
+
+        <div className="w-full md:w-[180px]">
+          {isLoading ? (
+            <LoadingBtn />
+          ) : (
+            <MainBtn type="submit" text="create account" />
+          )}
+        </div>
+      </form>
     </div>
   );
 };

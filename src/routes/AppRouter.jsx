@@ -15,6 +15,10 @@ import Contact from "../pages/Contact";
 import Login from "../pages/Login";
 import Regester from "../pages/Regester";
 import EmailVerficationOtp from "../pages/EmailVerficationOtp";
+import ForgetPassword from "../pages/ForgetPassword";
+import ForgetPasswordOtp from "../pages/ForgetPasswordOtp";
+import NewPassword from "../pages/NewPassword";
+import MyAccount from "../pages/MyAccount";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -45,6 +49,22 @@ const router = createBrowserRouter([
       {
         path: "verfiy-email",
         element: <EmailVerficationOtp />,
+      },
+      {
+        path: "forget-password",
+        element: <ForgetPassword />,
+      },
+      {
+        path: "forget-password-otp",
+        element: <ForgetPasswordOtp />,
+      },
+      {
+        path: "reset-password",
+        element: <NewPassword />,
+      },
+      {
+        path: "my-account",
+        element: <MyAccount />,
       },
     ],
   },

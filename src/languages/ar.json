@@ -178,5 +178,14 @@
   "email field is required": "البريد الإلكتروني مطلوب",
   "password field is required": "يجب إدخال كلمة المرور",
   "Confirmation by email": "تأكيد بواسطة البريد الالكتروني",
-  "enter the code": "يرجي إدخال الكود"
+  "enter the code": "يرجي إدخال الكود",
+  "don't receive the code ?": "لم تتلقي الرمز ؟",
+  "resend the code": "أعد إرسال الكود",
+  "forget password ?": "هل نسيت كلمة المرور ؟",
+  "Reset your password": "إعادة تعيين كلمة المرور الخاصة بك",
+  "Do you have problem logging in?": "هل لديك مشكلة في تسجيل الدخول؟",
+  "It’s easy to forget. Enter your email (that you used to create your account) and we will send you a reset password link.": "من السهل أن تنسى. أدخل بريدك الإلكتروني (الذي استخدمته لإنشاء حسابك) وسنرسل لك رابط إعادة تعيين كلمة المرور.",
+  "new password": "كلمة المرور الجديدة",
+  "change your password": "إعادة تعيين كلمة المرور",
+  "change password": "تغيير كلمة المرور"
 }
