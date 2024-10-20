@@ -81,3 +81,26 @@ input[type="number"] {
 .dir {
     direction: ltr !important;
 }
+
+/* تخصيص الـ Scroll Bar */
+.custom-slider::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+}
+
+.custom-slider::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    /* لون الخلفية */
+}
+
+.custom-slider::-webkit-scrollbar-thumb {
+    background: #888;
+    /* لون شريط التمرير */
+    border-radius: 10px;
+    /* جعل الشريط دائري */
+}
+
+.custom-slider::-webkit-scrollbar-thumb:hover {
+    background: #555;
+    /* تغيير اللون عند التمرير */
+}
