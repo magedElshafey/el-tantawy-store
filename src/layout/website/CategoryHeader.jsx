@@ -1,38 +1,27 @@
 import React from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import Slider from "react-slick";
 import { Link } from "react-router-dom";
 import createSlug from "../../utils/createSlug";
 const CategoryHeader = () => {
   const { data } = useGlobalContext();
   const categories = data?.categories || [];
-  const settings = {
-    dots: false,
-    infinite: false,
-    centerMode: true,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    variableWidth: true,
-  };
   return (
-    <div className="w-full bg-redColor py-2 flex items-center">
-      <div className="container">
-        <Slider {...settings}>
+    <div className="bg-[#f9f9f9f9] py-3  flex items-center">
+      <div className="container ">
+        <div className="flex items-center  gap-5 overflow-x-auto w-full overflow-y-hidden custom-scroll">
           {categories?.map((item, index) => (
             <Link
-              className="px-5 font-semibold text-white"
+              className="font-semibold text-nowrap pb-2"
               key={index}
-              to={`/${createSlug(item?.name)}`}
-              style={{
-                width: "fit-content",
+              to={`/category/${createSlug(item?.name)}`}
+              state={{
+                categoryId: item?.id,
               }}
             >
               {item?.name}
             </Link>
           ))}
-        </Slider>
+        </div>
       </div>
     </div>
   );

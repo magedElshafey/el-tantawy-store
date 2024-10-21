@@ -19,6 +19,7 @@ import ForgetPassword from "../pages/ForgetPassword";
 import ForgetPasswordOtp from "../pages/ForgetPasswordOtp";
 import NewPassword from "../pages/NewPassword";
 import MyAccount from "../pages/MyAccount";
+import Category from "../pages/Category";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -65,6 +66,10 @@ const router = createBrowserRouter([
       {
         path: "my-account",
         element: <MyAccount />,
+      },
+      {
+        path: "category/:categoryName",
+        element: <Category />,
       },
     ],
   },

@@ -42,7 +42,10 @@ const ProductSlider = ({ data }) => {
     ],
     appendDots: (dots) => (
       <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
-        <ul style={{ margin: "0px" }}> {dots} </ul>
+        <ul style={{ margin: "0px", position: "relative", bottom: "15px" }}>
+          {" "}
+          {dots}{" "}
+        </ul>
       </div>
     ),
     customPaging: (i) => (
@@ -70,7 +73,7 @@ const ProductSlider = ({ data }) => {
           <div
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
             key={index}
-            className="px-3 mb-5"
+            className="px-3 "
           >
             <ProductCard data={item} />
           </div>

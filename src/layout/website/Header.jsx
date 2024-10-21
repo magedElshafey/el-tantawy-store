@@ -10,8 +10,10 @@ import {
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
 import { useSelector } from "react-redux";
+import { useGlobalContext } from "../../context/GlobalContext";
 const Header = () => {
   const { t, i18n } = useTranslation();
+  const { data } = useGlobalContext();
   const [showLangMenu, setShowLangMenu] = useState(false);
   const handleShowLangMenu = () => setShowLangMenu(!showLangMenu);
   const navigate = useNavigate();
@@ -25,10 +27,14 @@ const Header = () => {
     }
   };
   return (
-    <div className="container bg-white my-2">
+    <div className="container bg-white ">
       <div className="flex items-center justify-between gap-8">
         <Link to="/">
-          <h1 className="text-redColor">Logo</h1>
+          <img
+            alt="logo"
+            src={data?.site?.logo}
+            className="w-[100px] h-[100px] md:w-[150px] md:h-[130px] "
+          />
         </Link>
         <div className="hidden lg:block flex-1">
           <Search />
