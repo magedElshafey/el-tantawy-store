@@ -2,7 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../context/GlobalContext";
 import CategoriesBannersSlider from "../components/home/CategoriesBannersSlider";
 import FeatuersCard from "../components/home/FeatuersCard";
-import ProductSlider from "../components/common/products/ProductSlider";
+import CategorySlider from "../components/common/categories/CategorySlider";
 const Home = () => {
   const { data } = useGlobalContext();
   return (
@@ -15,10 +15,8 @@ const Home = () => {
           ))}
         </div>
       </div>
-      <div className="w-full overflow-x-hidden bg-graySection relative py-3 flex items-center my-4 md:my-6 lg:my-8">
-        <div className="container">
-          <ProductSlider data={data?.productsForYou} />
-        </div>
+      <div className="w-full  bg-graySection relative py-3 flex items-center my-4 md:my-6 lg:my-8">
+        <CategorySlider data={data?.categories} />
       </div>
     </>
   );

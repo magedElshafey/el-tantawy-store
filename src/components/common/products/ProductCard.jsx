@@ -34,7 +34,7 @@ const ProductCard = ({ data }) => {
         {data?.name?.substr(0, 20)}
         {data?.name?.length > 20 ? "..." : null}
       </Link>
-      <div className="flex items-center gap-2 font-bold mb-3">
+      <div className="flex items-center gap-2 font-bold mb-3 text-nowrap flex-wrap">
         <p>
           {data?.hasOffer
             ? data?.offer?.priceAfterDiscount
@@ -55,6 +55,7 @@ const ProductCard = ({ data }) => {
           <div className="flex-1">
             {data?.colors?.map((item, index) => (
               <p
+                className=" text-nowrap"
                 key={index}
                 style={{
                   color: `${item?.name === "أبيض" ? "" : item?.hex}`,

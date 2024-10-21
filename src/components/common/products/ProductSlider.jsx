@@ -8,8 +8,7 @@ const ProductSlider = ({ data }) => {
   const { i18n } = useTranslation();
   const settings = {
     dots: true,
-    autoplay: true,
-    autoplaySpeed: 4000,
+    autoplay: false,
     arrows: false,
     infinite: true,
     slidesToShow: 5,
@@ -19,8 +18,7 @@ const ProductSlider = ({ data }) => {
     cssEase: "linear",
     rtl: i18n.language === "ar",
     verticalSwiping: false,
-    pauseOnHover: true,
-    swipeToSlide: true,
+
     responsive: [
       {
         breakpoint: 1224,
@@ -31,7 +29,7 @@ const ProductSlider = ({ data }) => {
       {
         breakpoint: 992,
         settings: {
-          slidesToShow: 4,
+          slidesToShow: 3,
         },
       },
 
@@ -42,6 +40,28 @@ const ProductSlider = ({ data }) => {
         },
       },
     ],
+    appendDots: (dots) => (
+      <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
+        <ul style={{ margin: "0px" }}> {dots} </ul>
+      </div>
+    ),
+    customPaging: (i) => (
+      <div
+        style={{
+          width: "30px",
+          height: "30px",
+          borderRadius: "50%",
+          color: "black",
+          border: "1px #de0712 solid",
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+          margin: "0 10px",
+        }}
+      >
+        {i + 1}
+      </div>
+    ),
   };
   return (
     <div>
@@ -50,7 +70,7 @@ const ProductSlider = ({ data }) => {
           <div
             dir={i18n.language === "ar" ? "rtl" : "ltr"}
             key={index}
-            className="px-3"
+            className="px-3 mb-5"
           >
             <ProductCard data={item} />
           </div>
