@@ -38,6 +38,7 @@ const CategorySlider = ({ data }) => {
               to={`/category/${createSlug(item?.name)}`}
               state={{
                 categoryId: item?.id,
+                categoryName: item?.name,
               }}
               className="text-nowrap font-semibold text-redColor duration-300 hover:underline"
             >

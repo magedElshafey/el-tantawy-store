@@ -37,7 +37,15 @@ const Footer = () => {
             <ul className="text-nowrap">
               {data?.categories?.map((item, index) => (
                 <li className="mb-3 duration-300 hover:underline" key={index}>
-                  <Link to={`/${createSlug(item?.name)}`}>{t(item?.name)}</Link>
+                  <Link
+                    to={`/category/${createSlug(item?.name)}`}
+                    state={{
+                      categoryId: item?.id,
+                      categoryName: item?.name,
+                    }}
+                  >
+                    {t(item?.name)}
+                  </Link>
                 </li>
               ))}
             </ul>

@@ -20,6 +20,7 @@ import ForgetPasswordOtp from "../pages/ForgetPasswordOtp";
 import NewPassword from "../pages/NewPassword";
 import MyAccount from "../pages/MyAccount";
 import Category from "../pages/Category";
+import ProductDetails from "../pages/ProductDetails";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -70,6 +71,10 @@ const router = createBrowserRouter([
       {
         path: "category/:categoryName",
         element: <Category />,
+      },
+      {
+        path: "product/:id",
+        element: <ProductDetails />,
       },
     ],
   },

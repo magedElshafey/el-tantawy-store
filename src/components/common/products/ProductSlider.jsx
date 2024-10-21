@@ -7,18 +7,16 @@ import { useTranslation } from "react-i18next";
 const ProductSlider = ({ data }) => {
   const { i18n } = useTranslation();
   const settings = {
-    dots: true,
-    autoplay: false,
+    dots: false,
+    autoplay: true,
     arrows: false,
     infinite: true,
     slidesToShow: 5,
     verical: false,
     slidesToScroll: 1,
-    initialSlide: 0,
-    cssEase: "linear",
     rtl: i18n.language === "ar",
-    verticalSwiping: false,
-
+    autoplaySpeed: 3000,
+    pauseOnHover: true,
     responsive: [
       {
         breakpoint: 1224,

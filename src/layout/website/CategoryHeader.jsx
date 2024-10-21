@@ -16,6 +16,7 @@ const CategoryHeader = () => {
               to={`/category/${createSlug(item?.name)}`}
               state={{
                 categoryId: item?.id,
+                categoryName: item?.name,
               }}
             >
               {item?.name}
