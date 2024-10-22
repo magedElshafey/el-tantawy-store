@@ -24,7 +24,8 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const { isLoading, mutate } = useMutation(handleLogin, {
     onSuccess: (data) => {
-      if (data?.data?.key) {
+      console.log("data returned from login success", data);
+      if (data?.data?.key === "success") {
         Swal.fire({
           icon: "success",
           title: data?.data?.msg,
@@ -35,6 +36,23 @@ const Login = () => {
         dispatch(login());
         dispatch(addMyData(data?.data?.data));
         dispatch(addToken(data?.data?.data?.token));
+      } else if (data?.data?.key === "needActive") {
+        Swal.fire({
+          title: data?.data?.msg,
+          icon: "warning",
+          showCancelButton: true,
+          confirmButtonColor: "#de0712",
+          cancelButtonColor: "#000",
+          confirmButtonText: t("activate"),
+          cancelButtonText: t("cancel"),
+        }).then((result) => {
+          if (result.isConfirmed) {
+            localStorage.setItem("active-email", JSON.stringify(email));
+            navigate("/verfiy-email");
+          } else {
+            return;
+          }
+        });
       } else {
         Swal.fire({
           icon: "error",
@@ -43,6 +61,7 @@ const Login = () => {
       }
     },
     onError: (data) => {
+      console.log("data retured from login error", data);
       Swal.fire({
         icon: "error",
         title: data?.data?.msg,

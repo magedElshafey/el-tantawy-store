@@ -3,7 +3,7 @@ import { useTranslation } from "react-i18next";
 import OtpInput from "react-otp-input";
 import MainBtn from "../components/common/buttons/MainBtn";
 import LoadingBtn from "../components/common/buttons/LoadingBtn";
-import { useMutation, useQuery } from "react-query";
+import { useMutation } from "react-query";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { checkForgetPasswordCode } from "../services/auth/checkForgetPasswordCode";

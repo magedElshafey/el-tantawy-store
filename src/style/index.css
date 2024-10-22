@@ -164,3 +164,9 @@ input[type="number"] {
 .desc li {
     list-style-type: disc !important;
 }
+
+a.active {
+    color: var(--redColor) !important;
+    font-weight: bold !important;
+    border-bottom: 1px solid var(--redColor) !important;
+}

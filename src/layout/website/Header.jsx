@@ -9,8 +9,13 @@ import {
   FaSearch,
 } from "react-icons/fa";
 import { useTranslation } from "react-i18next";
-import { useSelector } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { useGlobalContext } from "../../context/GlobalContext";
+import userImg from "../../assets/user-profile-icon-front-side-with-white-background.jpg";
+import { useMutation } from "react-query";
+import { handleLogout } from "../../services/auth/handleLogout";
+import Swal from "sweetalert2";
+import { logout } from "../../store/auth";
 const Header = () => {
   const { t, i18n } = useTranslation();
   const { data } = useGlobalContext();
@@ -20,12 +25,38 @@ const Header = () => {
   const handleWhishlistNavigate = () => navigate("/whishlist");
   const { isLogin } = useSelector((state) => state.authSlice);
   const handleUserIconClick = () => {
-    if (isLogin) {
-      navigate("/my-account");
-    } else {
-      navigate("/login");
-    }
+    navigate("/login");
   };
+  const [showAuthMenu, setShowAuthMenu] = useState(false);
+  const toggleShowAuthMenu = () => setShowAuthMenu(!showAuthMenu);
+  const dispatch = useDispatch();
+  const { isLoading, mutate } = useMutation(handleLogout, {
+    onSuccess: (data) => {
+      if (data?.data?.key === "success") {
+        Swal.fire({
+          icon: "success",
+          title: data?.data?.msg,
+        }).then(() => {
+          navigate("/");
+          setShowAuthMenu(false);
+          dispatch(logout());
+          window.location.reload();
+        });
+      } else {
+        Swal.fire({
+          icon: "error",
+          title: data?.data?.msg,
+        });
+      }
+    },
+    onError: (data) => {
+      Swal.fire({
+        icon: "error",
+        title: data?.data?.msg,
+      });
+    },
+  });
+  const handleLogoutClick = () => mutate();
   return (
     <div className="container bg-white ">
       <div className="flex items-center justify-between gap-8">
@@ -95,11 +126,52 @@ const Header = () => {
             />
           </div>
           {/* auth*/}
-          <FaUser
-            size={20}
-            className=" cursor-pointer"
-            onClick={handleUserIconClick}
-          />
+          {isLogin ? (
+            <div className="relative">
+              <div
+                className="w-[40px] h-[40px] rounded-[50%] cursor-pointer"
+                onClick={toggleShowAuthMenu}
+              >
+                <img
+                  alt={"profile"}
+                  src={userImg}
+                  className="w-full h-full rounded-[50%]"
+                />
+              </div>
+              <ul
+                className={`duration-300 absolute top-[25px] bg-white left-0 z-50 min-w-[120px] ${
+                  showAuthMenu ? "block" : "hidden"
+                } p-2 text-start rounded-md border`}
+              >
+                <li
+                  className=" cursor-pointer mb-3 w-fit"
+                  onClick={() => {
+                    navigate("/my-account");
+                    setShowAuthMenu(false);
+                  }}
+                >
+                  {t("my account")}
+                </li>
+                <li
+                  className={`${
+                    isLoading ? "cursor-not-allowed" : "cursor-pointer"
+                  }  w-fit`}
+                  onClick={() => {
+                    handleLogoutClick();
+                    setShowAuthMenu(false);
+                  }}
+                >
+                  {t("log out")}
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <FaUser
+              size={20}
+              className=" cursor-pointer"
+              onClick={handleUserIconClick}
+            />
+          )}
         </div>
       </div>
     </div>

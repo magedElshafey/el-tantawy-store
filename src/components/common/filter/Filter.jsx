@@ -6,13 +6,13 @@ import { IoIosArrowDown, IoIosArrowUp } from "react-icons/io";
 import { mainColors, priceList } from "../../../data/data";
 const Filter = ({ categories }) => {
   const { t } = useTranslation();
-  const [showCategories, setShowCategories] = useState(true);
+  const [showCategories, setShowCategories] = useState(false);
   const toggleShowCategories = () => setShowCategories(!showCategories);
-  const [showColors, setShowColors] = useState(true);
+  const [showColors, setShowColors] = useState(false);
   const toggleShowColors = () => setShowColors(!showColors);
   const [activeColor, setActiveColor] = useState(null);
   const handleActiveColorClick = (id) => setActiveColor(id);
-  const [showPriceList, setShowPriceList] = useState(true);
+  const [showPriceList, setShowPriceList] = useState(false);
   const toggleShowPriceList = () => setShowPriceList(!showPriceList);
   return (
     <div

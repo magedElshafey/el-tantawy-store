@@ -159,3 +159,22 @@ export const reviews = [
     date: "1/1/2000",
   },
 ];
+
+export const myAccountLinks = [
+  {
+    title: "my account",
+    path: "/my-account",
+  },
+  {
+    title: "my orders",
+    path: "/my-orders",
+  },
+  {
+    title: "my whishlist",
+    path: "/my-whishlist",
+  },
+  {
+    title: "my address",
+    path: "/my-address",
+  },
+];
