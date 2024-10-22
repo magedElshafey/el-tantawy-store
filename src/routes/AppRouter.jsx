@@ -10,8 +10,13 @@ import NoInternet from "../pages/NoInternet";
 import NotFound from "../pages/NotFound";
 // pages
 import Home from "../pages/Home";
+// static pages
 import About from "../pages/About";
 import Contact from "../pages/Contact";
+import Faq from "../pages/Faq";
+import Terms from "../pages/Terms";
+import Privacy from "../pages/Privacy";
+// authintecation pages
 import Login from "../pages/Login";
 import Regester from "../pages/Regester";
 import EmailVerficationOtp from "../pages/EmailVerficationOtp";
@@ -39,6 +44,18 @@ const router = createBrowserRouter([
       {
         path: "contact",
         element: <Contact />,
+      },
+      {
+        path: "faqs",
+        element: <Faq />,
+      },
+      {
+        path: "terms",
+        element: <Terms />,
+      },
+      {
+        path: "privacy",
+        element: <Privacy />,
       },
       {
         path: "login",

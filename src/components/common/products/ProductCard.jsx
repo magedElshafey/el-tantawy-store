@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { Link } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BsCart } from "react-icons/bs";
@@ -6,8 +6,9 @@ import { AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import { FaHeart, FaStar } from "react-icons/fa";
 
 const ProductCard = ({ data }) => {
-  console.log("data from product card", data);
   const { t } = useTranslation();
+  const [activeColor, setActiveColor] = useState(null);
+  const handleActiveColorClick = (i) => setActiveColor(i);
   return (
     <div className="border p-3 duration-300 hover:shadow-md">
       <img
@@ -50,19 +51,20 @@ const ProductCard = ({ data }) => {
         )}
       </div>
       {data?.colors?.length ? (
-        <div className="flex items-center gap-2 flex-wrap mb-3">
-          <p>{t("colors")} :</p>
-          <div className="flex-1">
+        <div className="">
+          <p className="font-semibold mb-2">{t("colors")} : </p>
+          <div className="w-full flex items-center gap-2 flex-wrap mb-3">
             {data?.colors?.map((item, index) => (
               <p
-                className=" text-nowrap"
+                onClick={() => handleActiveColorClick(index)}
                 key={index}
+                className={`w-6 h-6 duration-300  border-2 border-slate-700  rounded-[50%] cursor-pointer ${
+                  activeColor === index ? "scale-125" : ""
+                }`}
                 style={{
-                  color: `${item?.name === "أبيض" ? "" : item?.hex}`,
+                  backgroundColor: `${item?.hex}`,
                 }}
-              >
-                {item?.name}
-              </p>
+              ></p>
             ))}
           </div>
         </div>
