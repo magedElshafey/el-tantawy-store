@@ -1,3 +1,7 @@
+import { FaMedal } from "react-icons/fa";
+import { IoReturnDownBackOutline } from "react-icons/io5";
+import { FaEyeSlash } from "react-icons/fa6";
+import revImg from "../assets/review.jpg";
 export const importantLinks = [
   {
     title: "about us",
@@ -102,5 +106,56 @@ export const priceList = [
   {
     title: "above 10000",
     id: 5,
+  },
+];
+
+export const productStaticInfo = [
+  {
+    icon: <FaMedal size={20} />,
+    title: "Warranty",
+    desc: "year",
+  },
+  {
+    icon: <IoReturnDownBackOutline size={20} />,
+    title: "Free returns",
+    desc: "Terms and conditions apply to all products.",
+  },
+  {
+    icon: <FaEyeSlash size={20} />,
+    title: "تسوق بخصوصية",
+    desc: "We guarantee the privacy of your data.",
+  },
+];
+
+export const reviews = [
+  {
+    img: revImg,
+    name: "ميجززز",
+    review: "احلي طنطاوي و احلي تتح ابو البنات",
+    date: "1/1/2000",
+  },
+  {
+    img: revImg,
+    name: "ميجززز",
+    review: "احلي طنطاوي و احلي تتح ابو البنات",
+    date: "1/1/2000",
+  },
+  {
+    img: revImg,
+    name: "ميجززز",
+    review: "احلي طنطاوي و احلي تتح ابو البنات",
+    date: "1/1/2000",
+  },
+  {
+    img: revImg,
+    name: "ميجززز",
+    review: "احلي طنطاوي و احلي تتح ابو البنات",
+    date: "1/1/2000",
+  },
+  {
+    img: revImg,
+    name: "ميجززز",
+    review: "احلي طنطاوي و احلي تتح ابو البنات",
+    date: "1/1/2000",
   },
 ];

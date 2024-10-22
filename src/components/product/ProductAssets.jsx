@@ -5,12 +5,14 @@ const ProductAssets = ({ imgs, alt }) => {
   const handleActiveIndexClick = (index) => setActiveIndex(index);
   return (
     <div className="flex flex-col items-center">
-      <img
-        alt={alt}
-        src={imgs[activeIndex]}
-        className="max-w-full max-h-[200px]"
-        loading="lazy"
-      />
+      <div className="w-flex flex justify-start">
+        <img
+          alt={alt}
+          src={imgs[activeIndex]}
+          className="max-w-full max-h-[200px]"
+          loading="lazy"
+        />
+      </div>
       {imgs?.length > 1 ? (
         <div className="flex items-center gap-2 flex-wrap">
           {imgs?.map((item, index) => (

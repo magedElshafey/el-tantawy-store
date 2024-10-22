@@ -1,17 +1,18 @@
 import React, { useState } from "react";
 import { useTranslation } from "react-i18next";
+import AddToCartBtn from "./AddToCartBtn";
 const ProductInfo = ({ data }) => {
   const { t } = useTranslation();
   const [activeColor, setActiveColor] = useState(null);
   const handleActiveColorClick = (i) => setActiveColor(i);
   return (
     <div>
-      <p className="text-base md:text-md lg:text-lg mb-3 font-medium text-redColor">
+      <p className="text-base md:text-md lg:text-lg mb-3 font-semibold text-redColor">
         {data?.name}
       </p>
-      <div className="w-full flex items-center justify-between flex-col lg:flex-row gap-4 mb-3">
-        <div>
-          <p className="text-md md:text-lg lg:text-xl font-bold mb-2">
+      <div className="w-full flex items-start lg:items-center justify-between flex-col lg:flex-row gap-4 mb-3">
+        <div className="w-full md:w-fit flex items-center justify-between md:block">
+          <p className="text-md md:text-lg lg:text-xl font-bold md:mb-2">
             {data?.hasOffer
               ? data?.offer?.priceAfterDiscount
               : data?.discount
@@ -55,6 +56,9 @@ const ProductInfo = ({ data }) => {
           </div>
         </div>
       ) : null}
+      <div className="mb-4 md:mb-6 lg:mb-8 xl:mb-12">
+        <AddToCartBtn />
+      </div>
     </div>
   );
 };

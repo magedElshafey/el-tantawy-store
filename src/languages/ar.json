@@ -200,5 +200,20 @@
   "above 10000": "أكثر من 100000",
   "before offer": "قبل الخصم",
   "available": "متوفر في المخزون",
-  "product code": "كود المنتج"
+  "product code": "كود المنتج",
+  "Warranty": "الضمان",
+  "Free returns": "إرجاع مجاني",
+  "year": "سنة",
+  "Terms and conditions apply to all products.": "على جميع المنتجات وتطبق الشروط والأحكام.",
+  "Shop privately": "تسوق بخصوصية",
+  "We guarantee the privacy of your data.": "نضمن خصوصية بياناتك.",
+  "product descreption": "وصف المنتج",
+  "add to cart": "الإضافة الي العربة",
+  "client's question about this product": "أسئلة العملاء بخصوص هذا المنتج",
+  "comments and reviews": "التعليقات و التقييمات",
+  "you need to login to submit review": "يجب تسجيل الدخول لكي تتمكن من وضع تقييم للمنتج",
+  "leave a comment": "اترك تعليقا",
+  "norev": "لا يوجد تقييمات الان",
+  "always buy with": "عادة يتم شراؤه مع",
+  "related products": "منتجات ذات صلة"
 }
