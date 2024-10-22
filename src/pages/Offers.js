@@ -3,7 +3,7 @@ import Spinner from "../components/common/loader/Spinner";
 import { getOffers } from "../services/offers/getAllOffers";
 import { useQuery } from "react-query";
 import SingleBanner from "../components/common/banners/SingleBanner";
-import bannerImg from "../assets/بانر-العروض.png";
+import bannerImg from "../assets/عروض-الطنطااوي.png";
 import ProductCard from "../components/common/products/ProductCard";
 import { useGlobalContext } from "../context/GlobalContext";
 import Filter from "../components/common/filter/Filter";
