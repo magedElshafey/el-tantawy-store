@@ -13,8 +13,12 @@ const Footer = () => {
       <div className="container">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 md:gap-6 lg:gap-8 xl:gap-12">
           <div>
-            <Link className="mb-2" to="/">
-              <h1 className="text-redColor">logo</h1>
+            <Link to="/">
+              <img
+                alt="logo"
+                src={data?.site?.logo}
+                className="w-[100px] h-[100px] md:w-[150px] md:h-[130px] "
+              />
             </Link>
             <p className="text-nowrap">{data?.site?.slogan}</p>
           </div>
