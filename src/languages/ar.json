@@ -227,5 +227,8 @@
   "current password": "كلمة المرور الحالية",
   "delete account": "حذف الحساب",
   "log out": "تسجيل الخروج",
-  "no offers now": "لا يوجد عروض الان"
+  "no offers now": "لا يوجد عروض الان",
+  "clear": "تفريغ العربة",
+  "continu shopping": "متابعة التسوق",
+  "your cart is empty": "لا يوجد منتجات في عربة التسوق"
 }

@@ -170,3 +170,13 @@ a.active {
     font-weight: bold !important;
     border-bottom: 1px solid var(--redColor) !important;
 }
+
+.animate-to-cart {
+    position: absolute;
+    width: 100px;
+    height: 100px;
+    z-index: 1000;
+    top: 0;
+    left: 0;
+    pointer-events: none;
+}

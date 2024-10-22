@@ -4,11 +4,28 @@ import { useTranslation } from "react-i18next";
 import { BsCart } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import { FaHeart, FaStar } from "react-icons/fa";
-
+import { addToCart } from "../../../store/cart";
+import { useDispatch } from "react-redux";
 const ProductCard = ({ data }) => {
   const { t } = useTranslation();
   const [activeColor, setActiveColor] = useState(null);
   const handleActiveColorClick = (i) => setActiveColor(i);
+  const [colorError, setColorError] = useState("");
+  const dispatch = useDispatch();
+  const handleAddToCart = () => {
+    if (data?.colors?.length > 1 && activeColor === null) {
+      setColorError(t("you need to choose a color first"));
+      return;
+    } else {
+      setColorError("");
+      dispatch(
+        addToCart({
+          ...data,
+          selectedColor: data.colors[activeColor],
+        })
+      );
+    }
+  };
   return (
     <div className="border p-3 duration-300 hover:shadow-md">
       <img
@@ -70,7 +87,10 @@ const ProductCard = ({ data }) => {
         </div>
       ) : null}
       <div className="flex items-center gap-2 flex-wrap">
-        <div className="w-[30px] h-[30px] rounded-[50%] flex items-center justify-center text-white bg-redColor cursor-pointer duration-300 hover:scale-110">
+        <div
+          onClick={handleAddToCart}
+          className="w-[30px] h-[30px] rounded-[50%] flex items-center justify-center text-white bg-redColor cursor-pointer duration-300 hover:scale-110"
+        >
           <BsCart size={15} />
         </div>
         <Link

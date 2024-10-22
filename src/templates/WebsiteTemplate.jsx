@@ -5,6 +5,7 @@ import { useGlobalContext } from "../context/GlobalContext";
 import Header from "../layout/website/Header";
 import Footer from "../layout/website/Footer";
 import CategoryHeader from "../layout/website/CategoryHeader";
+import CartSidebar from "../components/cart/CartSidebar";
 const WebsiteTemplate = () => {
   const { data } = useGlobalContext();
   return (
@@ -16,6 +17,7 @@ const WebsiteTemplate = () => {
       />
       <Header />
       <CategoryHeader />
+      <CartSidebar />
       <div className="main">{<Outlet />}</div>
       <Footer />
     </div>

@@ -16,7 +16,9 @@ import { useMutation } from "react-query";
 import { handleLogout } from "../../services/auth/handleLogout";
 import Swal from "sweetalert2";
 import { logout } from "../../store/auth";
+import { openCart } from "../../store/cart";
 const Header = () => {
+  const { cartItems } = useSelector((state) => state.cartSlice);
   const { t, i18n } = useTranslation();
   const { data } = useGlobalContext();
   const [showLangMenu, setShowLangMenu] = useState(false);
@@ -117,13 +119,15 @@ const Header = () => {
             />
           </div>
           {/**cart */}
-          <div className="flex items-center gap-1">
-            <p className="text-sm font-bold text-redColor">0</p>
-            <FaCartArrowDown
-              onClick={handleWhishlistNavigate}
-              size={20}
-              className="cursor-pointer"
-            />
+          <div
+            id="cart-icon"
+            className="flex items-center gap-1 cursor-pointer"
+            onClick={() => dispatch(openCart())}
+          >
+            <p className="text-sm font-bold text-redColor">
+              {cartItems.length}
+            </p>
+            <FaCartArrowDown size={20} />
           </div>
           {/* auth*/}
           {isLogin ? (

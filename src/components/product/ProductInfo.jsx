@@ -17,7 +17,7 @@ const ProductInfo = ({ data }) => {
               ? data?.offer?.priceAfterDiscount
               : data?.discount
               ? data.price_after_discount
-              : data.price}{" "}
+              : data.price}
             {t("le")}
           </p>
           {data.discount && (
