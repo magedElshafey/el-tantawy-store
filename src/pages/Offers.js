@@ -1,5 +1,5 @@
 import React from "react";
-import Spinner from "sweetalert2";
+import Spinner from "../components/common/loader/Spinner";
 import { getOffers } from "../services/offers/getAllOffers";
 import { useQuery } from "react-query";
 import SingleBanner from "../components/common/banners/SingleBanner";

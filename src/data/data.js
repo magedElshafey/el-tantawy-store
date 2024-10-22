@@ -20,7 +20,7 @@ export const importantLinks = [
     title: "blogs",
   },
   {
-    path: "/offer",
+    path: "/offers",
     title: "offers",
   },
   {

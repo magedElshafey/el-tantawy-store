@@ -95,7 +95,7 @@ const router = createBrowserRouter([
         element: <ProductDetails />,
       },
       {
-        path: "offer",
+        path: "offers",
         element: <Offers />,
       },
     ],
