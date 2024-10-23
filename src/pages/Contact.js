@@ -20,7 +20,7 @@ const Contact = () => {
           alt2="contact-2"
         />
       </div>
-      <div className="flex flex-wrap items-center justify-between mb-4 md:mb-6 lg:mb-8 xl:mb-12">
+      <div className="flex flex-wrap items-center justify-between mb-4 md:mb-6 lg:mb-8 xl:mb-12 gap-3">
         <a
           href={`mailto:${data?.email}`}
           target="_blank"
@@ -32,13 +32,13 @@ const Contact = () => {
         <a
           href={facebookLink}
           target="_blank"
-          className="bg-black p-3 px-5  rounded-md text-white flex items-center justify-center w-[190px] "
+          className="bg-black p-3 px-5  rounded-md text-white flex items-center justify-center w-[220px] md:w-[190px] "
           rel="noreferrer"
         >
           {t("chat with us")}
         </a>
       </div>
-      <div className="flex items-center justify-between mb-4 md:mb-6 lg:mb-8 xl:mb-12">
+      <div className="flex flex-wrap text-nowrap gap-3 items-center justify-between mb-4 md:mb-6 lg:mb-8 xl:mb-12">
         <p className="font-bold flex items-center gap-2">
           <p>{t("hotline")} :</p>
           <p dir="ltr">{data?.site?.hotLine}</p>
