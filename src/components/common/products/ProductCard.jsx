@@ -84,6 +84,9 @@ const ProductCard = ({ data }) => {
               ></p>
             ))}
           </div>
+          {colorError ? (
+            <p className="text-sm md:text-base text-redColor">{colorError}</p>
+          ) : null}
         </div>
       ) : null}
       <div className="flex items-center gap-2 flex-wrap">

@@ -1,10 +1,15 @@
-import React, { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 import AddToCartBtn from "./AddToCartBtn";
-const ProductInfo = ({ data }) => {
+const ProductInfo = ({
+  data,
+  handleActiveColorClick,
+  colorError,
+  handleAddToCart,
+  activeColor,
+}) => {
   const { t } = useTranslation();
-  const [activeColor, setActiveColor] = useState(null);
-  const handleActiveColorClick = (i) => setActiveColor(i);
+
   return (
     <div>
       <p className="text-base md:text-md lg:text-lg mb-3 font-semibold text-redColor">
@@ -54,10 +59,13 @@ const ProductInfo = ({ data }) => {
               ></p>
             ))}
           </div>
+          {colorError ? (
+            <p className="text-sm md:text-base text-redColor">{colorError}</p>
+          ) : null}
         </div>
       ) : null}
       <div className="mb-4 md:mb-6 lg:mb-8 xl:mb-12">
-        <AddToCartBtn />
+        <AddToCartBtn handleAddToCart={handleAddToCart} />
       </div>
     </div>
   );

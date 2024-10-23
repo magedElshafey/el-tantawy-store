@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useQuery } from "react-query";
 import Spinner from "../components/common/loader/Spinner";
 import { getProductById } from "../services/product/getProductById";
@@ -18,9 +18,12 @@ import ProductCard from "../components/common/products/ProductCard";
 import ProductSlider from "../components/common/products/ProductSlider";
 import { useGlobalContext } from "../context/GlobalContext";
 import { getProductsByCategoryId } from "../services/product/getProductByCategoryId";
+import { useDispatch } from "react-redux";
+import { addToCart } from "../store/cart";
 const ProductDetails = () => {
   const { t } = useTranslation();
   const { id } = useParams();
+  const dispatch = useDispatch();
   const { isLoading, data } = useQuery(
     ["product", id],
     () => getProductById(id),
@@ -39,6 +42,23 @@ const ProductDetails = () => {
       enabled: !!data?.data?.data?.product?.category_id,
     }
   );
+  const [activeColor, setActiveColor] = useState(null);
+  const handleActiveColorClick = (i) => setActiveColor(i);
+  const [colorError, setColorError] = useState("");
+  const handleAddToCart = () => {
+    if (data?.data?.data.colors?.product.length > 1 && activeColor === null) {
+      setColorError(t("you need to choose a color first"));
+      return;
+    } else {
+      setColorError("");
+      dispatch(
+        addToCart({
+          ...data?.data?.data?.product,
+          selectedColor: data?.data?.data?.product?.colors[activeColor],
+        })
+      );
+    }
+  };
   return (
     <>
       {isLoading ? (
@@ -51,7 +71,13 @@ const ProductDetails = () => {
                 imgs={data?.data?.data?.product?.images}
                 alt={data?.data?.data?.product?.name}
               />
-              <ProductInfo data={data?.data?.data?.product} />
+              <ProductInfo
+                data={data?.data?.data?.product}
+                handleActiveColorClick={handleActiveColorClick}
+                colorError={colorError}
+                handleAddToCart={handleAddToCart}
+                activeColor={activeColor}
+              />
               <ProductStaticContent />
             </div>
           </div>
