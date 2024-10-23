@@ -4,19 +4,21 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import Slider from "react-slick";
 import { useTranslation } from "react-i18next";
+import { FaArrowRight, FaArrowLeft } from "react-icons/fa";
 const ProductSlider = ({ data }) => {
   const { i18n } = useTranslation();
   const settings = {
     dots: false,
-    autoplay: true,
-    arrows: false,
-    infinite: true,
+    autoplay: false,
+    arrows: true,
+    infinite: false,
     slidesToShow: 5,
     verical: false,
     slidesToScroll: 1,
     rtl: i18n.language === "ar",
-    autoplaySpeed: 3000,
-    pauseOnHover: true,
+    initialSlide: i18n.language === "ar" ? data.length - 1 : 0,
+    nextArrow: <NextArrow />,
+    prevArrow: <PrevArrow />,
     responsive: [
       {
         breakpoint: 1224,
@@ -38,31 +40,6 @@ const ProductSlider = ({ data }) => {
         },
       },
     ],
-    appendDots: (dots) => (
-      <div dir={i18n.language === "ar" ? "rtl" : "ltr"}>
-        <ul style={{ margin: "0px", position: "relative", bottom: "15px" }}>
-          {" "}
-          {dots}{" "}
-        </ul>
-      </div>
-    ),
-    customPaging: (i) => (
-      <div
-        style={{
-          width: "30px",
-          height: "30px",
-          borderRadius: "50%",
-          color: "black",
-          border: "1px #de0712 solid",
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          margin: "0 10px",
-        }}
-      >
-        {i + 1}
-      </div>
-    ),
   };
   return (
     <div>
@@ -80,5 +57,30 @@ const ProductSlider = ({ data }) => {
     </div>
   );
 };
-
+const NextArrow = ({ onClick, currentSlide, slideCount }) => {
+  return (
+    <button
+      className={`absolute top-1/2 right-0 transform -translate-y-1/2 bg-redColor text-white p-2 rounded-full z-10 ${
+        currentSlide === slideCount - 1 ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+      onClick={onClick}
+      disabled={currentSlide === slideCount - 1}
+    >
+      <FaArrowRight size={24} />
+    </button>
+  );
+};
+const PrevArrow = ({ onClick, currentSlide }) => {
+  return (
+    <button
+      className={`absolute top-1/2 left-0 transform -translate-y-1/2 bg-redColor text-white p-2 rounded-full z-10 ${
+        currentSlide === 0 ? "opacity-50 cursor-not-allowed" : ""
+      }`}
+      onClick={onClick}
+      disabled={currentSlide === 0}
+    >
+      <FaArrowLeft size={24} />
+    </button>
+  );
+};
 export default ProductSlider;

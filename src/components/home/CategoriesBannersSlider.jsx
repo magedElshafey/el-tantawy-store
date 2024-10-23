@@ -19,6 +19,7 @@ const CategoriesBannersSlider = ({ data }) => {
     verical: false,
     slidesToScroll: 1,
     rtl: i18n.language === "ar",
+    initialSlide: i18n.language === "ar" ? data.length - 1 : 0,
     autoplaySpeed: 2000,
     pauseOnHover: true,
 
