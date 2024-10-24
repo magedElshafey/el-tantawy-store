@@ -1,8 +1,9 @@
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
+// routes
+import ProtectedRoutes from "./ProtectedRoutes";
+import RedirectIfLoggedIn from "./RedirectIfLoggedIn";
 // templates
 import WebsiteTemplate from "../templates/WebsiteTemplate";
-import AuthintecationTemplate from "../templates/AuthintecationTemplate";
-import UserDashboardTemplate from "../templates/UserDashboardTemplate";
 // network status
 import useNetworkStatus from "../hooks/useNetworkStatus";
 import NoInternet from "../pages/NoInternet";
@@ -16,6 +17,8 @@ import Contact from "../pages/Contact";
 import Faq from "../pages/Faq";
 import Terms from "../pages/Terms";
 import Privacy from "../pages/Privacy";
+import Blogs from "../pages/Blogs";
+import Blog from "../pages/Blog";
 // authintecation pages
 import Login from "../pages/Login";
 import Regester from "../pages/Regester";
@@ -23,10 +26,16 @@ import EmailVerficationOtp from "../pages/EmailVerficationOtp";
 import ForgetPassword from "../pages/ForgetPassword";
 import ForgetPasswordOtp from "../pages/ForgetPasswordOtp";
 import NewPassword from "../pages/NewPassword";
-import MyAccount from "../pages/MyAccount";
+
+// product and categories pages
 import Category from "../pages/Category";
 import ProductDetails from "../pages/ProductDetails";
 import Offers from "../pages/Offers";
+// user dashboard
+import MyAccount from "../pages/MyAccount";
+import Orders from "../pages/Orders";
+import Whishlist from "../pages/Whishlist";
+import Addresses from "../pages/Addresses";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -59,33 +68,62 @@ const router = createBrowserRouter([
         element: <Privacy />,
       },
       {
+        path: "blogs",
+        element: <Blogs />,
+      },
+      {
+        path: "blogs/:id",
+        element: <Blog />,
+      },
+      {
         path: "login",
-        element: <Login />,
+        element: (
+          <RedirectIfLoggedIn>
+            <Login />
+          </RedirectIfLoggedIn>
+        ),
       },
       {
         path: "regester",
-        element: <Regester />,
+        element: (
+          <RedirectIfLoggedIn>
+            <Regester />
+          </RedirectIfLoggedIn>
+        ),
       },
       {
         path: "verfiy-email",
-        element: <EmailVerficationOtp />,
+        element: (
+          <RedirectIfLoggedIn>
+            <EmailVerficationOtp />
+          </RedirectIfLoggedIn>
+        ),
       },
       {
         path: "forget-password",
-        element: <ForgetPassword />,
+        element: (
+          <RedirectIfLoggedIn>
+            <ForgetPassword />
+          </RedirectIfLoggedIn>
+        ),
       },
       {
         path: "forget-password-otp",
-        element: <ForgetPasswordOtp />,
+        element: (
+          <RedirectIfLoggedIn>
+            <ForgetPasswordOtp />
+          </RedirectIfLoggedIn>
+        ),
       },
       {
         path: "reset-password",
-        element: <NewPassword />,
+        element: (
+          <RedirectIfLoggedIn>
+            <NewPassword />
+          </RedirectIfLoggedIn>
+        ),
       },
-      {
-        path: "my-account",
-        element: <MyAccount />,
-      },
+
       {
         path: "category/:categoryName",
         element: <Category />,
@@ -98,13 +136,40 @@ const router = createBrowserRouter([
         path: "offers",
         element: <Offers />,
       },
+      {
+        path: "my-account",
+        element: (
+          <ProtectedRoutes>
+            <MyAccount />
+          </ProtectedRoutes>
+        ),
+      },
+      {
+        path: "my-orders",
+        element: (
+          <ProtectedRoutes>
+            <Orders />
+          </ProtectedRoutes>
+        ),
+      },
+      {
+        path: "my-whishlist",
+        element: (
+          <ProtectedRoutes>
+            <Whishlist />
+          </ProtectedRoutes>
+        ),
+      },
+
+      {
+        path: "my-address",
+        element: (
+          <ProtectedRoutes>
+            <Addresses />
+          </ProtectedRoutes>
+        ),
+      },
     ],
-  },
-  {
-    element: <AuthintecationTemplate />,
-    path: "auth",
-    errorElement: <NotFound />,
-    children: [],
   },
 ]);
 const AppRouter = () => {

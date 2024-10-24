@@ -6,7 +6,7 @@ const MainBtn = ({ text, action, type }) => {
     <button
       type={type ? type : "submit"}
       onClick={action}
-      className="w-full p-3 flex items-center justify-center bg-black text-white duration-300 hover:bg-white hover:text-black   hover:border hover:border-black"
+      className="w-full p-3 flex items-center justify-center bg-black text-white duration-300 hover:bg-white hover:text-black  border border-black"
     >
       {t(text)}
     </button>

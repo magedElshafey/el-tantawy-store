@@ -76,7 +76,7 @@ const Header = () => {
           {/**search*/}
           <FaSearch size={20} className=" lg:hidden cursor-pointer" />
           {/*lang menu*/}
-          <div className="relative">
+          {/* <div className="relative">
             <FaGlobe
               onClick={handleShowLangMenu}
               size={20}
@@ -108,7 +108,7 @@ const Header = () => {
                 {t("en")}
               </li>
             </ul>
-          </div>
+          </div> */}
           {/*whish list*/}
           <div className="flex items-center gap-1">
             <p className="text-sm font-bold text-redColor">0</p>

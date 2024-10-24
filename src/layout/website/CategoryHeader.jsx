@@ -2,6 +2,7 @@ import React from "react";
 import { useGlobalContext } from "../../context/GlobalContext";
 import { Link } from "react-router-dom";
 import createSlug from "../../utils/createSlug";
+import { t } from "i18next";
 const CategoryHeader = () => {
   const { data } = useGlobalContext();
   const categories = data?.categories || [];
@@ -9,6 +10,9 @@ const CategoryHeader = () => {
     <div className="bg-[#f9f9f9f9] py-3  flex items-center">
       <div className="container ">
         <div className="flex items-center  gap-5 overflow-x-auto w-full overflow-y-hidden custom-scroll">
+          <Link to="/offers" className="font-semibold text-nowrap pb-2">
+            {t("offers")}
+          </Link>
           {categories?.map((item, index) => (
             <Link
               className="font-semibold text-nowrap pb-2"

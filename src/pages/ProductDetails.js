@@ -112,7 +112,7 @@ const ProductDetails = () => {
               ) : (
                 <Link
                   to="/login"
-                  className="block font-medium underline text-redColor mb-3"
+                  className="block font-medium underline text-redColor mb-"
                 >
                   {t("you need to login to submit review")}
                 </Link>
