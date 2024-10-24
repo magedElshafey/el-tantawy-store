@@ -11,7 +11,7 @@ const ProductSlider = ({ data }) => {
     dots: false,
     autoplay: false,
     arrows: true,
-    infinite: false,
+    infinite: true,
     slidesToShow: 5,
     verical: false,
     slidesToScroll: 1,

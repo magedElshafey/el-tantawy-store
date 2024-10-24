@@ -2,6 +2,8 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 // routes
 import ProtectedRoutes from "./ProtectedRoutes";
 import RedirectIfLoggedIn from "./RedirectIfLoggedIn";
+// scroll to top
+import ScrollToTopAfterChangePage from "../components/common/app/ScrollToTopAfterChangePage";
 // templates
 import WebsiteTemplate from "../templates/WebsiteTemplate";
 // network status
@@ -174,7 +176,17 @@ const router = createBrowserRouter([
 ]);
 const AppRouter = () => {
   const { isOnline } = useNetworkStatus();
-  return <>{isOnline ? <RouterProvider router={router} /> : <NoInternet />}</>;
+  return (
+    <>
+      {isOnline ? (
+        <RouterProvider router={router}>
+          <ScrollToTopAfterChangePage />
+        </RouterProvider>
+      ) : (
+        <NoInternet />
+      )}
+    </>
+  );
 };
 
 export default AppRouter;

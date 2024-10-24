@@ -1,17 +1,63 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useTranslation } from "react-i18next";
 import { BsCart } from "react-icons/bs";
 import { AiOutlineEye, AiOutlineHeart } from "react-icons/ai";
 import { FaHeart, FaStar } from "react-icons/fa";
 import { addToCart } from "../../../store/cart";
-import { useDispatch } from "react-redux";
+import { useDispatch, useSelector } from "react-redux";
+import { useMutation, useQueryClient } from "react-query";
+import { toggleWhishList } from "../../../services/product/toggleWhishlist";
+import Swal from "sweetalert2";
 const ProductCard = ({ data }) => {
   const { t } = useTranslation();
   const [activeColor, setActiveColor] = useState(null);
   const handleActiveColorClick = (i) => setActiveColor(i);
   const [colorError, setColorError] = useState("");
   const dispatch = useDispatch();
+  const { isLogin } = useSelector((state) => state.authSlice);
+  const navigate = useNavigate();
+  const queryClient = useQueryClient();
+  const { isLoading, mutate } = useMutation(toggleWhishList, {
+    onSuccess: (data) => {
+      queryClient.invalidateQueries("my-whishlist");
+      Swal.fire({
+        icon: "success",
+        title: data?.data?.msg,
+      });
+    },
+    onError: (data) => {
+      console.log("data returned from whishlist error", data);
+      Swal.fire({
+        icon: "error",
+        title: data?.data?.msg,
+      });
+    },
+  });
+  const handleAddToWhishList = (id) => {
+    if (!isLogin) {
+      Swal.fire({
+        icon: "warning",
+        title: t("you need to login"),
+        showCancelButton: true,
+        confirmButtonColor: "#de0712",
+        cancelButtonColor: "#000",
+        confirmButtonText: t("login"),
+        cancelButtonText: t("cancel"),
+      }).then((res) => {
+        if (res.isConfirmed) {
+          navigate("/login");
+        } else {
+          return;
+        }
+      });
+    } else {
+      const data = {
+        product_id: id,
+      };
+      mutate(data);
+    }
+  };
   const handleAddToCart = () => {
     if (data?.colors?.length > 1 && activeColor === null) {
       setColorError(t("you need to choose a color first"));
@@ -102,7 +148,15 @@ const ProductCard = ({ data }) => {
         >
           <AiOutlineEye size={15} />
         </Link>
-        <div className="w-[30px] h-[30px] rounded-[50%] flex items-center justify-center cursor-pointer duration-300 hover:scale-110 bg-slate-600 text-white">
+        <div
+          onClick={() => handleAddToWhishList(data?.id)}
+          className={`w-[30px] h-[30px] rounded-[50%] flex items-center justify-center
+           duration-300 hover:scale-110 bg-slate-600 text-white ${
+             isLoading
+               ? "bg-opacity-30 cursor-not-allowed"
+               : "bg-opacity-100 cursor-pointer"
+           }`}
+        >
           {data?.is_wishlist ? (
             <FaHeart className="text-redColor" size={15} />
           ) : (
