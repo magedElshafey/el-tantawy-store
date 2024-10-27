@@ -10,7 +10,7 @@ import MainBtn from "../components/common/buttons/MainBtn";
 import ProductSlider from "../components/common/products/ProductSlider";
 import SingleBanner from "../components/common/banners/SingleBanner";
 import offerBanner from "../assets/بانر-العروض.png";
-import buyNow from "../assets/اشتري-دلوقتي-ادفع بعدين.png";
+import buyNow from "../assets/اشتري-دلوقتي-وادفع-بعدين.png";
 import waitUs from "../assets/استنونا-كل-يوم.png";
 import haram from "../assets/هرم-الطنطاوي-الرابع.png";
 import aboElBanat from "../assets/ابو-البنات.png";
@@ -128,11 +128,7 @@ const Home = () => {
       </div>
       {/**installment banner*/}
       <div className=" overflow-x-hidden my-4 md:my-6 lg:my-8 xl:my-12 ">
-        <SingleBanner
-          alt="installment"
-          src={buyNow}
-          height="h-[35px] md:h-[100px]"
-        />
+        <SingleBanner alt="installment" src={buyNow} />
       </div>
       {/**customized product */}
       <div className="container">

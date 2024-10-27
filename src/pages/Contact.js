@@ -1,7 +1,7 @@
 import React from "react";
 import DoubleBanner from "../components/common/banners/DoubleBanner";
-import img1 from "../assets/contact-01.avif";
-import img2 from "../assets/contact-02.avif";
+import img1 from "../assets/contact-us.png";
+import img2 from "../assets/contact-us-2.png";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useTranslation } from "react-i18next";
 const Contact = () => {

@@ -38,6 +38,7 @@ import MyAccount from "../pages/MyAccount";
 import Orders from "../pages/Orders";
 import Whishlist from "../pages/Whishlist";
 import Addresses from "../pages/Addresses";
+import Cart from "../pages/Cart";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -49,6 +50,7 @@ const router = createBrowserRouter([
         element: <Home />,
         index: "true",
       },
+      // static pages
       {
         path: "about",
         element: <About />,
@@ -125,7 +127,7 @@ const router = createBrowserRouter([
           </RedirectIfLoggedIn>
         ),
       },
-
+      // categories and products
       {
         path: "category/:categoryName",
         element: <Category />,
@@ -138,6 +140,7 @@ const router = createBrowserRouter([
         path: "offers",
         element: <Offers />,
       },
+      // user dashboard
       {
         path: "my-account",
         element: (
@@ -162,7 +165,6 @@ const router = createBrowserRouter([
           </ProtectedRoutes>
         ),
       },
-
       {
         path: "my-address",
         element: (
@@ -170,6 +172,11 @@ const router = createBrowserRouter([
             <Addresses />
           </ProtectedRoutes>
         ),
+      },
+      // check out pages
+      {
+        path: "cart",
+        element: <Cart />,
       },
     ],
   },

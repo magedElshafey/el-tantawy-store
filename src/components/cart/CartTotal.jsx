@@ -10,7 +10,7 @@ const CartTotal = ({ totalPrice }) => {
   const navigate = useNavigate();
   const handleCheckoutClick = () => {
     dispatch(closeCart());
-    navigate("/checkout");
+    navigate("/cart");
   };
   return (
     <div className="mt-8 md:mt-12 lg:mt-20">

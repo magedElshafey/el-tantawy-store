@@ -235,5 +235,20 @@
   "chat with us": "الدردشة معنا",
   "hotline": "الخط الساخن",
   "follow us on": "تابعنا علي",
-  "you need to login": "تحتاج الي تسجيل الدخول"
+  "you need to login": "تحتاج الي تسجيل الدخول",
+  "product quanttiy": "كمية المنتج",
+  "product price": "سعر المنتج",
+  "delete product": "حذف المنتج",
+  "delete": "حذف",
+  "total price": "السعر الكلي",
+  "kopon": "رمز الكوبون",
+  "use the copon": "استخدم الكوبون",
+  "cart total": "إجمالي عربة التسوق",
+  "total": "المجموع",
+  "shipping": "الشحن",
+  "Shipping options will be updated during checkout.": "سيتم تحديث خيارات الشحن أثناء السداد.",
+  "discount": "الخصم",
+  "total price after discount": "السعر بعد الخصم",
+  "net price": "الإجمالي",
+  "complete order": "إتمام الطلب"
 }

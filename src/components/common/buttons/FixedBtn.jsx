@@ -4,7 +4,6 @@ import { useTranslation } from "react-i18next";
 const FixedBtn = () => {
   const { data } = useGlobalContext();
   const { i18n } = useTranslation();
-  console.log("data returened from global fixed btn", data);
   const whatsapp = data?.socials?.find((item) => item?.name === "whatsapp");
   return (
     <div>
