@@ -6,6 +6,7 @@ import Header from "../layout/website/Header";
 import Footer from "../layout/website/Footer";
 import CategoryHeader from "../layout/website/CategoryHeader";
 import CartSidebar from "../components/cart/CartSidebar";
+import FixedBtn from "../components/common/buttons/FixedBtn";
 const WebsiteTemplate = () => {
   const { data } = useGlobalContext();
   return (
@@ -15,6 +16,7 @@ const WebsiteTemplate = () => {
         desc={data?.site?.description}
         fav={data?.site?.fav_icon}
       />
+      <FixedBtn />
       <Header />
       <CategoryHeader />
       <CartSidebar />

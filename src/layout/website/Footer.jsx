@@ -28,8 +28,13 @@ const Footer = () => {
             </p>
             <ul className="text-nowrap">
               {importantLinks?.map((item, index) => (
-                <li className="mb-3 duration-300 hover:underline" key={index}>
-                  <Link to={item?.path}>{t(item?.title)}</Link>
+                <li className="mb-3" key={index}>
+                  <Link
+                    className="duration-300 hover:underline"
+                    to={item?.path}
+                  >
+                    {t(item?.title)}
+                  </Link>
                 </li>
               ))}
             </ul>
@@ -40,8 +45,9 @@ const Footer = () => {
             </p>
             <ul className="text-nowrap">
               {data?.categories?.map((item, index) => (
-                <li className="mb-3 duration-300 hover:underline" key={index}>
+                <li className="mb-3" key={index}>
                   <Link
+                    className="duration-300 hover:underline"
                     to={`/category/${createSlug(item?.name)}`}
                     state={{
                       categoryId: item?.id,
@@ -60,18 +66,15 @@ const Footer = () => {
             </p>
             <ul className="flex items-center flex-wrap gap-3">
               {data?.socials?.map((item, index) => (
-                <a
-                  key={index}
-                  href={item?.path}
-                  target="_blank"
-                  rel="noreferrer"
-                >
-                  <img
-                    alt={item?.name}
-                    src={item?.icon}
-                    className="w-[34px] h-[34px]"
-                  />
-                </a>
+                <li key={index}>
+                  <a href={item?.link} target="_blank" rel="noreferrer">
+                    <img
+                      alt={item?.name}
+                      src={item?.icon}
+                      className="w-[34px] h-[34px]"
+                    />
+                  </a>
+                </li>
               ))}
             </ul>
           </div>

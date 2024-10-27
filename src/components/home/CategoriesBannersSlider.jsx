@@ -19,7 +19,7 @@ const CategoriesBannersSlider = ({ data }) => {
     verical: false,
     slidesToScroll: 1,
     rtl: i18n.language === "ar",
-    initialSlide: i18n.language === "ar" ? data.length - 1 : 0,
+    initialSlide: i18n.language === "ar" ? data?.length - 1 : 0,
     autoplaySpeed: 2000,
     pauseOnHover: true,
 
@@ -46,20 +46,7 @@ const CategoriesBannersSlider = ({ data }) => {
     ],
   };
   const sliderRef = useRef(null);
-  // const slickNext = () => {
-  //   if (sliderRef.current) {
-  //     sliderRef.current.slickNext();
-  //   }
-  // };
 
-  // const slickPrev = () => {
-  //   if (sliderRef.current) {
-  //     sliderRef.current.slickPrev();
-  //   }
-  // };
-  // const isNextDisabled =
-  //   sliderRef.current?.innerSlider?.currentSlide === data.length - 1;
-  // const isPrevDisabled = sliderRef.current?.innerSlider?.currentSlide === 0;
   return (
     <div className="w-full h-[100px] md:h-[200px] lg:h-[300px] relative ">
       <Slider

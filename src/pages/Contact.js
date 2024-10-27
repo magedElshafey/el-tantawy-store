@@ -47,7 +47,7 @@ const Contact = () => {
           <p className="font-bold mb-2">{t("follow us on")}</p>
           <ul className="flex items-center flex-wrap gap-3">
             {data?.socials?.map((item, index) => (
-              <a key={index} href={item?.path} target="_blank" rel="noreferrer">
+              <a key={index} href={item?.link} target="_blank" rel="noreferrer">
                 <img
                   alt={item?.name}
                   src={item?.icon}
