@@ -5,7 +5,7 @@ import { useQuery } from "react-query";
 import { getAllProducts } from "../../../services/product/getAllProducts";
 import _ from "lodash";
 import { Link } from "react-router-dom";
-const Search = () => {
+const Search = ({ toggleShowSearch }) => {
   const { t } = useTranslation();
   const [keyword, setKeyword] = useState("");
   const [showDropdown, setShowDropdown] = useState(false);
@@ -60,8 +60,14 @@ const Search = () => {
                     className="p-2 hover:bg-gray-100 cursor-pointer"
                   >
                     <Link
-                      onClick={() => setShowDropdown(false)}
-                      to={`/local/${item?.id}`}
+                      onClick={() => {
+                        setShowDropdown(false);
+                        setKeyword("");
+                        if (toggleShowSearch) {
+                          toggleShowSearch();
+                        }
+                      }}
+                      to={`/product/${item?.id}`}
                       className="block w-full"
                     >
                       {item?.name}
