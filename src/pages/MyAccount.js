@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import UserDashboardNavlinks from "../components/common/userDashboard/UserDashboardNavlinks";
 import userImg from "../assets/user-profile-icon-front-side-with-white-background.jpg";
 import MainInput from "../components/common/inputs/MainInput";
@@ -10,6 +10,10 @@ import { handleLogout } from "../services/auth/handleLogout";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { logout } from "../store/auth";
+import usePasswordValidation from "../hooks/validation/usePasswordValidation";
+import useTextInputValidation from "../hooks/validation/useTextInputValidation";
+import useNumberInput from "../hooks/validation/useNumberInput";
+import LoadingBtn from "../components/common/buttons/LoadingBtn";
 const MyAccount = () => {
   const { t } = useTranslation();
   const user = localStorage.getItem("user")
@@ -44,6 +48,27 @@ const MyAccount = () => {
     },
   });
   const handleLogoutClick = () => mutate();
+  const {
+    password,
+    error: passwordError,
+    handleChange: handlePasswordChange,
+    setPassword,
+  } = usePasswordValidation();
+  const [email, setEmail] = useState("");
+  const {
+    value: name,
+    error: nameError,
+    handleChange: handleNameChange,
+    setValue: setName,
+  } = useTextInputValidation();
+  const {
+    value: phone,
+    error: phoneError,
+    handleChange: handlePhoneChange,
+    setValue: setPhone,
+  } = useNumberInput();
+  const [user_name, setUserName] = useState("");
+  const handleUserNameChange = (e) => setUserName(e.target.value);
   return (
     <div className="container mt-4">
       <UserDashboardNavlinks />
