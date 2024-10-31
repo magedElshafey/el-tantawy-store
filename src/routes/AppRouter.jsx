@@ -40,6 +40,7 @@ import Whishlist from "../pages/Whishlist";
 import Addresses from "../pages/Addresses";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
+import Branches from "../pages/Branches";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -127,6 +128,10 @@ const router = createBrowserRouter([
             <NewPassword />
           </RedirectIfLoggedIn>
         ),
+      },
+      {
+        path: "branches",
+        title: <Branches />,
       },
       // categories and products
       {

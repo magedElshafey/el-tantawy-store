@@ -16,7 +16,7 @@ const ProductSlider = ({ data }) => {
     verical: false,
     slidesToScroll: 1,
     rtl: i18n.language === "ar",
-    initialSlide: i18n.language === "ar" ? data.length - 1 : 0,
+    initialSlide: i18n.language === "ar" ? data?.length - 1 : 0,
     nextArrow: <NextArrow />,
     prevArrow: <PrevArrow />,
     responsive: [
