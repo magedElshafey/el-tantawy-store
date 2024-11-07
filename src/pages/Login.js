@@ -11,6 +11,7 @@ import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import { login, addToken, addMyData } from "../store/auth";
 import { handleLogin } from "../services/auth/handleLogin";
+import loginImg from "../assets/Login-Banner.png";
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -97,60 +98,65 @@ const Login = () => {
   };
   return (
     <div className="container my-8">
-      <div className="mb-5">
-        <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
-          {t("Log in to your account")}
-        </p>
-        <p className=" text-slate-600">
-          {t(
-            "Get a more personalised experience where you don’t need to fill in your information every time"
-          )}
-        </p>
-      </div>
-      <form className="w-full md:w-1/2" onSubmit={handleSubmit}>
-        <p className=" font-semibold mb-6">
-          {t(
-            "Log in or join el-tantawy today to benefit from a more personalized experience"
-          )}
-        </p>
-        <div className="my-4">
-          <MainInput
-            type="email"
-            label="email"
-            value={email}
-            onChange={(e) => setEmail(e.target.value)}
-          />
-        </div>
-        <div className="my-4">
-          <MainInput
-            type="password"
-            label="password"
-            value={password}
-            onChange={handlePasswordChange}
-            error={passwordError}
-          />
-        </div>
-        <div className="w-full flex justify-end">
-          <Link to="/forget-password" className="text-slate-600 underline">
-            {t("forget password ?")}
-          </Link>
-        </div>
-        <div className="w-full flex justify-center my-3">
-          <div className="w-[180px]">
-            {isLoading ? (
-              <LoadingBtn />
-            ) : (
-              <MainBtn type="submit" text="login" />
-            )}
+      <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
+        <div className="w-full md:w-1/2">
+          <div className="mb-5">
+            <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
+              {t("Log in to your account")}
+            </p>
+            <p className=" text-slate-600">
+              {t(
+                "Get a more personalised experience where you don’t need to fill in your information every time"
+              )}
+            </p>
           </div>
+          <form onSubmit={handleSubmit}>
+            <p className=" font-semibold mb-6">
+              {t(
+                "Log in or join el-tantawy today to benefit from a more personalized experience"
+              )}
+            </p>
+            <div className="my-4">
+              <MainInput
+                type="email"
+                label="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+            <div className="my-4">
+              <MainInput
+                type="password"
+                label="password"
+                value={password}
+                onChange={handlePasswordChange}
+                error={passwordError}
+              />
+            </div>
+            <div className="w-full flex justify-end">
+              <Link to="/forget-password" className="text-slate-600 underline">
+                {t("forget password ?")}
+              </Link>
+            </div>
+            <div className="my-6 w-full md:w-1/2 mx-auto">
+              {isLoading ? (
+                <LoadingBtn />
+              ) : (
+                <MainBtn type="submit" text="login" />
+              )}
+            </div>
+            <div className="w-full flex items-center justify-center md:justify-end gap-2">
+              <p className="text-slate-600">{t("dont have")}</p>
+              <Link to="/regester" className=" text-redColor underline">
+                {t("create account")}
+              </Link>
+            </div>
+          </form>
         </div>
-        <Link
-          to="/regester"
-          className=" border w-full md:w-[180px] mx-auto border-black bg-white text-black flex items-center justify-center p-3  duration-300 hover:bg-black hover:text-white hover:border-white"
-        >
-          {t("create account")}
-        </Link>
-      </form>
+        <div className="w-full md:w-1/2 h-[200px] md:h-[300px] lg:h-[400px]">
+          <img alt="login" src={loginImg} className="w-full h-full" />
+        </div>
+      </div>
     </div>
   );
 };

@@ -10,6 +10,7 @@ import Swal from "sweetalert2";
 import { regester } from "../services/auth/regester";
 import MainBtn from "../components/common/buttons/MainBtn";
 import LoadingBtn from "../components/common/buttons/LoadingBtn";
+import regesterImg from "../assets/register.png";
 const Regester = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -116,81 +117,82 @@ const Regester = () => {
   };
   return (
     <div className="container my-8">
-      <div className="mb-6">
-        <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
-          {t("create an El-Tantawy Account")}
-        </p>
-        <p className=" font-semibold mb-6">
-          {t(
-            "From your profile, you will find all information connected to your account. And it’s free to join!"
-          )}
-        </p>
-        <p className=" text-slate-600 flex items-center gap-1">
-          <p>{t("Already have an account?")}</p>
-          <Link to="/login" className=" underline">
-            {t("login")}
-          </Link>
-        </p>
+      <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
+        <div className="w-full md:w-1/2">
+          <div className="mb-6">
+            <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
+              {t("create an El-Tantawy Account")}
+            </p>
+            <p className=" font-semibold mb-6">
+              {t(
+                "From your profile, you will find all information connected to your account. And it’s free to join!"
+              )}
+            </p>
+            <p className=" text-slate-600 flex items-center gap-1">
+              <p>{t("Already have an account?")}</p>
+              <Link to="/login" className=" underline">
+                {t("login")}
+              </Link>
+            </p>
+          </div>
+          <form onSubmit={handleSubmit}>
+            <div className="my-4">
+              <MainInput
+                type="text"
+                label="name"
+                value={name}
+                onChange={handleNameChange}
+                error={nameError}
+              />
+            </div>
+            <div className="my-4">
+              <MainInput
+                type="text"
+                label="user name"
+                value={user_name}
+                onChange={handleUserNameChange}
+              />
+            </div>
+
+            <div className="my-4">
+              <MainInput
+                type="number"
+                label="phone"
+                value={phone}
+                onChange={handlePhoneChange}
+                error={phoneError}
+              />
+            </div>
+            <div className="my-4">
+              <MainInput
+                type="email"
+                label="email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+              />
+            </div>
+
+            <MainInput
+              type="password"
+              label="password"
+              value={password}
+              onChange={handlePasswordChange}
+              error={passwordError}
+            />
+
+            <div className="my-6 w-full md:w-1/2 mx-auto">
+              {isLoading ? (
+                <LoadingBtn />
+              ) : (
+                <MainBtn type="submit" text="create account" />
+              )}
+            </div>
+          </form>
+        </div>
+        <div className="w-full md:w-1/2 h-[200px] md:h-[300px] lg:h-[400px]">
+          <img alt="login" src={regesterImg} className="w-full h-full" />
+        </div>
       </div>
-      <form onSubmit={handleSubmit}>
-        <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-          <div>
-            <MainInput
-              type="text"
-              label="name"
-              value={name}
-              onChange={handleNameChange}
-              error={nameError}
-            />
-          </div>
-          <div>
-            <MainInput
-              type="text"
-              label="user name"
-              value={user_name}
-              onChange={handleUserNameChange}
-            />
-          </div>
-        </div>
-
-        <div className="my-4 grid grid-cols-1 md:grid-cols-2 gap-4 md:gap-6 lg:gap-8">
-          <div>
-            <MainInput
-              type="number"
-              label="phone"
-              value={phone}
-              onChange={handlePhoneChange}
-              error={phoneError}
-            />
-          </div>
-          <div>
-            <MainInput
-              type="email"
-              label="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
-            />
-          </div>
-        </div>
-
-        <div className="w-full md:w-1/2 my-4">
-          <MainInput
-            type="password"
-            label="password"
-            value={password}
-            onChange={handlePasswordChange}
-            error={passwordError}
-          />
-        </div>
-
-        <div className="w-full md:w-[180px]">
-          {isLoading ? (
-            <LoadingBtn />
-          ) : (
-            <MainBtn type="submit" text="create account" />
-          )}
-        </div>
-      </form>
     </div>
   );
 };
