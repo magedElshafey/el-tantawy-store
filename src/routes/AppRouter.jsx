@@ -41,6 +41,7 @@ import Addresses from "../pages/Addresses";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
 import Branches from "../pages/Branches";
+import ShippingDetails from "../pages/ShippingDetails";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -183,6 +184,14 @@ const router = createBrowserRouter([
       {
         path: "cart",
         element: <Cart />,
+      },
+      {
+        path: "shipping",
+        element: (
+          <ProtectedRoutes>
+            <ShippingDetails />
+          </ProtectedRoutes>
+        ),
       },
       {
         path: "checkout",

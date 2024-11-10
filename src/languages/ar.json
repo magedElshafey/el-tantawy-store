@@ -256,5 +256,12 @@
   "browse by category": "تصفح عن طريق الأقسام",
   "browse more": "تصفح المزيد",
   "show more offers": "تصفح المزيد من العروض",
-  "dont have": "ليس لديك حساب ؟"
+  "dont have": "ليس لديك حساب ؟",
+  "enter the shipping address": "أدخل عنوان الشحن",
+  "last name": "الإسم الاخير",
+  "first name": "الإسم الأول",
+  "address street": "عنوان الشارع",
+  "government name": "إسم المحافظة",
+  "city name": "إسم المدينة",
+  "+ add address": "+ إضافة عنوان"
 }

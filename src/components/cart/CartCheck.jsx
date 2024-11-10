@@ -4,14 +4,14 @@ import { useNavigate } from "react-router-dom";
 import MainBtn from "../common/buttons/MainBtn";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-const CartCheck = ({ totalPrice }) => {
+const CartCheck = ({ totalPrice, btnText, btnPath }) => {
   const { t } = useTranslation();
   const discount = 50;
   const navigate = useNavigate();
   const { isLogin } = useSelector((state) => state.authSlice);
   const handleNavigate = () => {
     if (isLogin) {
-      navigate("/checkout");
+      navigate(btnPath);
     } else {
       Swal.fire({
         icon: "warning",
@@ -65,7 +65,7 @@ const CartCheck = ({ totalPrice }) => {
           {totalPrice - discount} {t("le")}
         </p>
       </div>
-      <MainBtn action={handleNavigate} text="complete order" />
+      <MainBtn action={handleNavigate} text={btnText} />
     </div>
   );
 };

@@ -47,7 +47,11 @@ const Cart = () => {
             </div>
           </div>
           <div className="w-full md:w-1/4">
-            <CartCheck totalPrice={totalPrice} />
+            <CartCheck
+              totalPrice={totalPrice}
+              btnPath="/shipping"
+              btnText="إستكمال الطلب"
+            />
           </div>
         </div>
       </div>
