@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import SingleBanner from "../components/common/banners/SingleBanner";
 import banner from "../assets/عربية-التسوق.png";
 import { useSelector, useDispatch } from "react-redux";
