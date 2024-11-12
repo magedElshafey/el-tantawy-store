@@ -21,7 +21,6 @@ const Category = () => {
       enabled: !!categoryId,
     }
   );
-  console.log("data from category details", data?.data?.data);
   return (
     <>
       {isLoading ? (

@@ -25,7 +25,6 @@ const Login = () => {
   const [email, setEmail] = useState("");
   const { isLoading, mutate } = useMutation(handleLogin, {
     onSuccess: (data) => {
-      console.log("data returned from login success", data);
       if (data?.data?.key === "success") {
         Swal.fire({
           icon: "success",
@@ -62,7 +61,6 @@ const Login = () => {
       }
     },
     onError: (data) => {
-      console.log("data retured from login error", data);
       Swal.fire({
         icon: "error",
         title: data?.data?.msg,

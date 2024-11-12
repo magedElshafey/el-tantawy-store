@@ -11,7 +11,6 @@ import { useTranslation } from "react-i18next";
 const Offers = () => {
   const { t } = useTranslation();
   const { isLoading, data } = useQuery("offers", getOffers);
-  console.log("data from offers", data);
   const { data: global } = useGlobalContext();
   return (
     <>

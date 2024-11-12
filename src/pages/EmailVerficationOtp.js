@@ -18,7 +18,6 @@ const EmailVerficationOtp = () => {
   const [otp, setOtp] = useState("");
   const { isLoading, mutate } = useMutation(emailVerfication, {
     onSuccess: (data) => {
-      console.log("data from otp verfication", data);
       if (data?.data?.key === "success") {
         Swal.fire({
           icon: "success",
@@ -64,7 +63,6 @@ const EmailVerficationOtp = () => {
     {
       enabled: false,
       onSuccess: (data) => {
-        console.log("data from resend the code", data);
         if (data?.data?.key === "success") {
           Swal.fire({
             icon: "success",

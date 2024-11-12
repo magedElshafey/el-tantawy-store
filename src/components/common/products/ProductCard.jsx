@@ -27,7 +27,6 @@ const ProductCard = ({ data }) => {
       });
     },
     onError: (data) => {
-      console.log("data returned from whishlist error", data);
       Swal.fire({
         icon: "error",
         title: data?.data?.msg,

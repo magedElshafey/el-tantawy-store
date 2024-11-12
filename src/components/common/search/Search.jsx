@@ -31,7 +31,6 @@ const Search = ({ toggleShowSearch }) => {
       enabled: false,
     }
   );
-  console.log("data from searcg", data);
   return (
     <div className="relative  border border-black ">
       <div className="w-full flex items-center justify-between gap-8">

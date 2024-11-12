@@ -37,7 +37,6 @@ const Regester = () => {
   const handleUserNameChange = (e) => setUserName(e.target.value);
   const { isLoading, mutate } = useMutation(regester, {
     onSuccess: (data) => {
-      console.log("data from sign up", data);
       if (data?.data?.key === "success") {
         Swal.fire({
           icon: "success",
@@ -57,9 +56,7 @@ const Regester = () => {
         });
       }
     },
-    onError: (data) => {
-      console.log("data from sign up error", data);
-    },
+    onError: (data) => {},
   });
   const handleSubmit = (e) => {
     e.preventDefault();

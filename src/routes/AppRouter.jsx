@@ -21,6 +21,8 @@ import Terms from "../pages/Terms";
 import Privacy from "../pages/Privacy";
 import Blogs from "../pages/Blogs";
 import Blog from "../pages/Blog";
+import Branches from "../pages/Branches";
+import Branch from "../pages/Branch";
 // authintecation pages
 import Login from "../pages/Login";
 import Regester from "../pages/Regester";
@@ -40,7 +42,6 @@ import Whishlist from "../pages/Whishlist";
 import Addresses from "../pages/Addresses";
 import Cart from "../pages/Cart";
 import Checkout from "../pages/Checkout";
-import Branches from "../pages/Branches";
 import ShippingDetails from "../pages/ShippingDetails";
 const router = createBrowserRouter([
   {
@@ -132,7 +133,11 @@ const router = createBrowserRouter([
       },
       {
         path: "branches",
-        title: <Branches />,
+        element: <Branches />,
+      },
+      {
+        path: "branches/:id",
+        element: <Branch />,
       },
       // categories and products
       {

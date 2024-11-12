@@ -7,7 +7,6 @@ import { AiOutlineMinus } from "react-icons/ai";
 import { MdDeleteForever } from "react-icons/md";
 
 const CartItems = ({ items }) => {
-  console.log("items from cart sidebar", items);
   const { t } = useTranslation();
   const dispatch = useDispatch();
   return (

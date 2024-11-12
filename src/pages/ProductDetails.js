@@ -31,7 +31,6 @@ const ProductDetails = () => {
       enabled: !!id,
     }
   );
-  console.log("data from product details", data?.data?.data);
   const { isLoading: loadingFaq, data: faq } = useFaq();
   const { isLogin } = useSelector((state) => state.authSlice);
   const { data: global } = useGlobalContext();

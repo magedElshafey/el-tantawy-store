@@ -5,7 +5,6 @@ import createSlug from "../../utils/createSlug";
 import ProductSlider from "../common/products/ProductSlider";
 const ProductLabel = ({ item, products }) => {
   const { t } = useTranslation();
-  console.log("item from product label", item);
   return (
     <>
       <div className="w-full py-5 px-8 md:px-16 flex items-center justify-between text-nowrap bg-redColor text-white rounded-md mb-4 md:mb-6 lg:mb-8 xl:mb-12">

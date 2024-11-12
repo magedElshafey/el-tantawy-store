@@ -6,7 +6,6 @@ import { importantLinks } from "../../data/data";
 import createSlug from "../../utils/createSlug";
 const Footer = () => {
   const { data } = useGlobalContext();
-  console.log("data global", data);
   const { t } = useTranslation();
   return (
     <div className="bg-[#f9f9f9f9] w-full py-3 flex items-center">

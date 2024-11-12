@@ -11,7 +11,7 @@ const About = () => {
         <Spinner />
       ) : (
         <div className="container my-8">
-          {data?.data?.data?.about?.map((item, index) => (
+          {data?.data?.data?.about?.reverse().map((item, index) => (
             <AboutCard key={index} data={item} num={index} />
           ))}
         </div>
