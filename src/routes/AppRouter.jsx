@@ -40,9 +40,11 @@ import MyAccount from "../pages/MyAccount";
 import Orders from "../pages/Orders";
 import Whishlist from "../pages/Whishlist";
 import Addresses from "../pages/Addresses";
+// checkout pages
 import Cart from "../pages/Cart";
-import Checkout from "../pages/Checkout";
 import ShippingDetails from "../pages/ShippingDetails";
+import Payment from "../pages/Payment";
+import Checkout from "../pages/Checkout";
 const router = createBrowserRouter([
   {
     element: <WebsiteTemplate />,
@@ -195,6 +197,14 @@ const router = createBrowserRouter([
         element: (
           <ProtectedRoutes>
             <ShippingDetails />
+          </ProtectedRoutes>
+        ),
+      },
+      {
+        path: "payment-methods",
+        element: (
+          <ProtectedRoutes>
+            <Payment />
           </ProtectedRoutes>
         ),
       },

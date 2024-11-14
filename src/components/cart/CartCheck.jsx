@@ -4,7 +4,7 @@ import { useNavigate } from "react-router-dom";
 import MainBtn from "../common/buttons/MainBtn";
 import { useSelector } from "react-redux";
 import Swal from "sweetalert2";
-const CartCheck = ({ totalPrice, btnText, btnPath }) => {
+const CartCheck = ({ totalPrice, btnText, btnPath, action }) => {
   const { t } = useTranslation();
   const discount = 50;
   const navigate = useNavigate();
@@ -65,7 +65,9 @@ const CartCheck = ({ totalPrice, btnText, btnPath }) => {
           {totalPrice - discount} {t("le")}
         </p>
       </div>
-      <MainBtn action={handleNavigate} text={btnText} />
+      {btnText ? (
+        <MainBtn action={action ? action : handleNavigate} text={btnText} />
+      ) : null}
     </div>
   );
 };

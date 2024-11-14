@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import SingleBanner from "../components/common/banners/SingleBanner";
-import banner from "../assets/عربية-التسوق.png";
+import banner from "../assets/ادخال-بيانات-الشحن.png";
 import { useSelector, useDispatch } from "react-redux";
 import { useTranslation } from "react-i18next";
 import CartCheck from "../components/cart/CartCheck";
@@ -9,7 +9,8 @@ import ShippingCard from "../components/shpping/ShippingCard";
 import MainBtn from "../components/common/buttons/MainBtn";
 import { openAddressForm, closeAddressesForm } from "../store/shipping";
 import { IoIosClose } from "react-icons/io";
-
+import Swal from "sweetalert2";
+import { useNavigate } from "react-router-dom";
 const ShippingDetails = () => {
   const { t } = useTranslation();
   const { addresses, isAddressesFormOpen } = useSelector(
@@ -27,15 +28,32 @@ const ShippingDetails = () => {
   const dispatch = useDispatch();
   const handleAddAddressButtonClick = () => dispatch(openAddressForm());
   const handleCloseAddressForm = () => dispatch(closeAddressesForm());
+  const [activeIndex, setActiveIndex] = useState(null);
+  const navigate = useNavigate();
+  const action = () => {
+    if (!addresses.length) {
+      Swal.fire({
+        icon: "error",
+        title: "تحتاج الي إدخال عنوان الشحن اولا",
+      });
+      return;
+    } else {
+      navigate("/payment-methods");
+    }
+  };
   return (
     <div>
-      <SingleBanner src={banner} alt="cart" />
+      <SingleBanner src={banner} alt="shipping-details" />
       <div className="container mt-4 mb-4 md:mb-6 lg:mt-8 xl:mt-12">
         <div className="w-full flex gap-4 md:gap-6 lg:gap-8 flex-col md:flex-row">
           <div className="w-full md:w-3/4">
             {addresses?.length ? (
               <div>
-                <ShippingCard addressesPage={false} />
+                <ShippingCard
+                  addressesPage={false}
+                  activeIndex={activeIndex}
+                  setActiveIndex={setActiveIndex}
+                />
 
                 <div className="w-[180px] mt-8">
                   <MainBtn
@@ -59,6 +77,7 @@ const ShippingDetails = () => {
               totalPrice={totalPrice}
               btnText="إستكمال الطلب"
               btnPath="/payment-methods"
+              action={action}
             />
           </div>
         </div>

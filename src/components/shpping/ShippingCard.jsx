@@ -9,21 +9,21 @@ import MainInput from "../common/inputs/MainInput";
 import MainSelect from "../common/inputs/MainSelect";
 import MainBtn from "../common/buttons/MainBtn";
 import Swal from "sweetalert2";
-const ShippingCard = ({ addressesPage }) => {
+const ShippingCard = ({ addressesPage, activeIndex, setActiveIndex }) => {
   const dispatch = useDispatch();
   const handleRemoveAddressClick = (v) => dispatch(removeAddress(v));
   const { addresses } = useSelector((state) => state.shippingSlice);
-  const [activeIndex, setActiveIndex] = useState(null);
+
   const { pathname } = useLocation();
   const [showEditForm, setShowEditForm] = useState(false);
   const toggleShowEditForm = () => setShowEditForm(!showEditForm);
   useEffect(() => {
-    if (addresses?.length === 1) {
+    if (addresses?.length === 1 && !addressesPage) {
       setActiveIndex(0);
     } else {
       setActiveIndex(null);
     }
-  }, [addresses]);
+  }, [addresses, addressesPage, setActiveIndex]);
   const handleActiveIndexClick = (v) => setActiveIndex(v);
   const {
     value: firstName,
