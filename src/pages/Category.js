@@ -47,14 +47,14 @@ const Category = () => {
               <ProductSlider data={data?.data?.data?.mostSelling} />
             </div>
           ) : null}
-          {data?.data?.data?.mostRated?.length ? (
+          {/* {data?.data?.data?.mostRated?.length ? (
             <div className="w-full overflow-x-hidden py-5 flex items-center bg-graySection my-4 md:my-6 lg:my-8 xl:my-12">
               <div className="container">
                 <h3 className="mb-5">{t("rated")}</h3>
                 <ProductSlider data={data?.data?.data?.mostRated} />
               </div>
             </div>
-          ) : null}
+          ) : null} */}
           {data?.data?.data?.randomProducts?.length ? (
             <div className="container">
               <div className="w-full flex  gap-4 mb-5">
