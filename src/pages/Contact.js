@@ -4,6 +4,8 @@ import img1 from "../assets/contact-us.png";
 import img2 from "../assets/contact-us-2.png";
 import { useGlobalContext } from "../context/GlobalContext";
 import { useTranslation } from "react-i18next";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const Contact = () => {
   const { data } = useGlobalContext();
   const { t } = useTranslation();
@@ -12,6 +14,7 @@ const Contact = () => {
   )?.link;
   return (
     <div className="container mt-4">
+      <Meta title={tabTitle(t("contact us"))} />
       <div className="mb-4 md:mb-6 lg:mb-8 xl:mb-12">
         <DoubleBanner
           img1={img1}

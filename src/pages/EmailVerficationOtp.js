@@ -9,6 +9,8 @@ import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { resendEmailActivationCode } from "../services/auth/resendEmailActivationCode";
 import img from "../assets/email-activationع.png";
+import Meta from "../components/common/seo/Meta";
+import { tabTitle } from "../utils/tabTitle";
 const EmailVerficationOtp = () => {
   const { t } = useTranslation("");
   const navigate = useNavigate();
@@ -80,6 +82,7 @@ const EmailVerficationOtp = () => {
   const handleResendClick = () => refetch();
   return (
     <div className="container my-8">
+      <Meta title={tabTitle(t("email verification"))} />
       <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
         <div className="w-full md:w-1/2">
           <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">

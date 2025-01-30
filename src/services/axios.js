@@ -1,20 +1,19 @@
 import axios from "axios";
 import { userToken } from "../store/auth";
 import store from "../store/store";
+import { apiUrl, apiKey } from "./api/config";
 const token = userToken(store.getState());
-
 const lang = localStorage.getItem("lang")
   ? JSON.parse(localStorage.getItem("lang"))
   : "ar";
-
 const client = axios.create({
-  baseURL: "https://dashboard-eltantawy.elqimmatech.com/api",
+  baseURL: apiUrl,
   headers: {
     "Content-Type": "application/json",
     lang,
     "Accept-Language": lang,
     "Access-Control-Allow-Credentials": true,
-    "x-api-key": "0FcBOe75FIFkBkNkA",
+    "x-api-key": apiKey,
     Authorization: token ? `Bearer ${token}` : null,
   },
 });

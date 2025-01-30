@@ -11,6 +11,8 @@ import { regester } from "../services/auth/regester";
 import MainBtn from "../components/common/buttons/MainBtn";
 import LoadingBtn from "../components/common/buttons/LoadingBtn";
 import regesterImg from "../assets/register.png";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const Regester = () => {
   const { t, i18n } = useTranslation();
   const navigate = useNavigate();
@@ -114,6 +116,7 @@ const Regester = () => {
   };
   return (
     <div className="container my-8">
+      <Meta title="Register" />
       <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
         <div className="w-full md:w-1/2">
           <div className="mb-6">

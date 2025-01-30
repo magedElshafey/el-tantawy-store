@@ -2,6 +2,8 @@ import SingleBanner from "../components/common/banners/SingleBanner";
 import banner from "../assets/0 وسيلة الدفع.png";
 import CartCheck from "../components/cart/CartCheck";
 import { useSelector } from "react-redux";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const Payment = () => {
   const { cartItems } = useSelector((state) => state.cartSlice);
   const totalPrice = cartItems.reduce((acc, product) => {
@@ -14,6 +16,7 @@ const Payment = () => {
   }, 0);
   return (
     <div>
+      <Meta title={tabTitle("payment methods")} />
       <SingleBanner src={banner} alt="payment-methods" />
       <div className="container mt-4 mb-4 md:mb-6 lg:mt-8 xl:mt-12">
         <div className="w-full flex gap-4 md:gap-6 lg:gap-8 flex-col md:flex-row">

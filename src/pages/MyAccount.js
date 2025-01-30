@@ -14,6 +14,8 @@ import usePasswordValidation from "../hooks/validation/usePasswordValidation";
 import useTextInputValidation from "../hooks/validation/useTextInputValidation";
 import useNumberInput from "../hooks/validation/useNumberInput";
 import LoadingBtn from "../components/common/buttons/LoadingBtn";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const MyAccount = () => {
   const { t } = useTranslation();
   const user = localStorage.getItem("user")
@@ -71,6 +73,7 @@ const MyAccount = () => {
   const handleUserNameChange = (e) => setUserName(e.target.value);
   return (
     <div className="container mt-4">
+      <Meta title={tabTitle("my-account")} />
       <UserDashboardNavlinks />
       <div className="my-4 md:my-6 lg:my-8 xl:my-12 bg-white shadow-md rounded-md p-5">
         <div className="flex items-center gap-4 flex-col md:flex-row mb-4 ">

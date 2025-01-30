@@ -9,6 +9,8 @@ import MainBtn from "../components/common/buttons/MainBtn";
 import { openAddressForm, closeAddressesForm } from "../store/shipping";
 import { IoIosClose } from "react-icons/io";
 import UserDashboardNavlinks from "../components/common/userDashboard/UserDashboardNavlinks";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const Addresses = () => {
   const dispatch = useDispatch();
   const handleAddAddressButtonClick = () => dispatch(openAddressForm());
@@ -19,6 +21,7 @@ const Addresses = () => {
   const { t } = useTranslation();
   return (
     <div>
+      <Meta title={tabTitle(t("my addresses"))} />
       <SingleBanner src={banner} alt="cart" />
       <div className="container mt-4 mb-4 md:mb-6 lg:mt-8 xl:mt-12">
         <div className="my-2 md:my-4 lg:my-6 xl:my-8">

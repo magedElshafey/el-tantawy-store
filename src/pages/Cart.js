@@ -5,6 +5,8 @@ import { useTranslation } from "react-i18next";
 import CartCheck from "../components/cart/CartCheck";
 import SingleBanner from "../components/common/banners/SingleBanner";
 import banner from "../assets/عربية-التسوق.png";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const Cart = () => {
   const { cartItems } = useSelector((state) => state.cartSlice);
   const { t } = useTranslation();
@@ -22,6 +24,7 @@ const Cart = () => {
   }, 0);
   return (
     <div>
+      <Meta title={tabTitle(t("my cart"))} />
       <SingleBanner src={banner} alt="cart" />
       <div className="container mt-4 mb-4 md:mb-6 lg:mt-8 xl:mt-12">
         <div className="w-full flex gap-4 md:gap-6 lg:gap-8 flex-col md:flex-row">

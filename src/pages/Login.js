@@ -12,6 +12,8 @@ import Swal from "sweetalert2";
 import { login, addToken, addMyData } from "../store/auth";
 import { handleLogin } from "../services/auth/handleLogin";
 import loginImg from "../assets/Login-Banner.png";
+import Meta from "../components/common/seo/Meta";
+import { tabTitle } from "../utils/tabTitle";
 const Login = () => {
   const { t } = useTranslation();
   const navigate = useNavigate();
@@ -96,6 +98,7 @@ const Login = () => {
   };
   return (
     <div className="container my-8">
+      <Meta title={tabTitle("login")} />
       <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
         <div className="w-full md:w-1/2">
           <div className="mb-5">

@@ -8,6 +8,8 @@ import { resetPassword } from "../services/auth/resetPassword";
 import Swal from "sweetalert2";
 import usePasswordValidation from "../hooks/validation/usePasswordValidation";
 import { useNavigate } from "react-router-dom";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const NewPassword = () => {
   const email = localStorage.getItem("forget-password-email")
     ? JSON.parse(localStorage.getItem("forget-password-email"))
@@ -69,6 +71,7 @@ const NewPassword = () => {
   };
   return (
     <div className="container my-8">
+      <Meta title={tabTitle("new password")} />
       <div className="mb-5">
         <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
           {t("change your password")}

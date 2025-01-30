@@ -9,6 +9,8 @@ import MainInput from "../components/common/inputs/MainInput";
 import { sendForgetPasswordCode } from "../services/auth/sendForgetPasswordCode";
 import { useNavigate } from "react-router-dom";
 import forgetPasswordImg from "../assets/forget-passwordع.png";
+import Meta from "../components/common/seo/Meta";
+import { tabTitle } from "../utils/tabTitle";
 const ForgetPassword = () => {
   const { t } = useTranslation();
   const [email, setEmail] = useState("");
@@ -52,6 +54,8 @@ const ForgetPassword = () => {
   };
   return (
     <div className="container my-8">
+      <Meta title={tabTitle("forget-password")} />
+
       <div className="flex flex-col-reverse md:flex-row items-center  gap-6 md:gap-8 lg:gap-12">
         <div className="w-full md:w-1/2">
           <div className="mb-5">

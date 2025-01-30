@@ -7,6 +7,8 @@ import { useMutation } from "react-query";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
 import { checkForgetPasswordCode } from "../services/auth/checkForgetPasswordCode";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const ForgetPasswordOtp = () => {
   const { t } = useTranslation("");
   const navigate = useNavigate();
@@ -52,6 +54,7 @@ const ForgetPasswordOtp = () => {
   };
   return (
     <div className="container my-8">
+      <Meta title={tabTitle("forget-password-otp")} />
       <div className="mb-5">
         <p className="text-md md:text-lg lg:text-xl font-bold mb-3 text-redColor">
           {t("Confirmation by email")}

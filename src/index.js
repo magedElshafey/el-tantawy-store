@@ -14,7 +14,15 @@ import { Provider } from "react-redux";
 import store from "./store/store";
 // context
 import GlobalContext from "./context/GlobalContext";
-const queryClient = new QueryClient();
+const queryClient = new QueryClient({
+  defaultOptions: {
+    queries: {
+      refetchOnWindowFocus: false,
+      retry: 4,
+      retryDelay: 1000,
+    },
+  },
+});
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <QueryClientProvider client={queryClient}>

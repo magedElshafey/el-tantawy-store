@@ -11,6 +11,8 @@ import { openAddressForm, closeAddressesForm } from "../store/shipping";
 import { IoIosClose } from "react-icons/io";
 import Swal from "sweetalert2";
 import { useNavigate } from "react-router-dom";
+import { tabTitle } from "../utils/tabTitle";
+import Meta from "../components/common/seo/Meta";
 const ShippingDetails = () => {
   const { t } = useTranslation();
   const { addresses, isAddressesFormOpen } = useSelector(
@@ -43,6 +45,7 @@ const ShippingDetails = () => {
   };
   return (
     <div>
+      <Meta title={tabTitle("shipping details")} />
       <SingleBanner src={banner} alt="shipping-details" />
       <div className="container mt-4 mb-4 md:mb-6 lg:mt-8 xl:mt-12">
         <div className="w-full flex gap-4 md:gap-6 lg:gap-8 flex-col md:flex-row">

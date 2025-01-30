@@ -15,14 +15,18 @@ import waitUs from "../assets/استنونا-كل-يوم.png";
 import haram from "../assets/هرم-الطنطاوي-الرابع.png";
 import atgawez from "../assets/عايزة-اتجوز.png";
 import ProductLabel from "../components/product/ProductLabel";
+import FetchHandler from "../components/common/dataFetching/FetchHandler";
 const Home = () => {
   const { data } = useGlobalContext();
+  console.log("data from home page", data);
+  const queryResult = useGlobalContext();
+  console.log("query from home page", queryResult);
   const { t } = useTranslation();
   const navigate = useNavigate();
   const handleOffersPageNavigate = () => navigate("/offers");
   const handlePrideOffersNavigate = () => navigate("/pride-offers");
   return (
-    <>
+    <FetchHandler queryResult={queryResult}>
       <CategoriesBannersSlider data={data?.banners} />
       {/**features*/}
       <div className="container">
@@ -138,7 +142,7 @@ const Home = () => {
           </div>
         ))}
       </div>
-    </>
+    </FetchHandler>
   );
 };
 
